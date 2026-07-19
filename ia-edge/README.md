@@ -9,10 +9,13 @@ bancos brasileiros, faz prognósticos e publica um post por dia — sem interven
 GitHub Actions (cron diário 07:00 BRT)
         │
         ▼
-agent/run.py ──► Claude API + web search (dados reais do dia)
-        │            │
-        │            ├─ gera o post do dia (agenda editorial por dia da semana)
-        │            └─ segunda passada: revisão editorial do texto
+agent/run.py ──► pipeline de 4 agentes (Claude API + web search):
+        │            1. BRIEFING  — macro, micro, geopolítica e cadeias de correlação
+        │               (ex.: IA -> Nvidia/TSMC -> Taiwan x China -> semicondutores -> Brasil)
+        │            2. REDATOR   — escreve o post do dia a partir do briefing
+        │            3. FACT-CHECK — verifica cada número e atribuição na web e corrige
+        │               (log em data/factcheck_log.jsonl)
+        │            4. ESTILO    — remove linguagem de IA, redundâncias e americanismos
         ▼
 posts/*.md  +  data/track_record.json (decisões aplicadas)
         │
@@ -61,7 +64,7 @@ A partir daí, roda sozinho todo dia às 07:00 (Brasília).
 
 ## Custo estimado
 
-~2 chamadas de API por dia (geração + revisão) com web search.
+~4 chamadas de API por dia (briefing + redação + fact-check + estilo), 3 delas com web search.
 Ordem de grandeza: poucos dólares por mês no Sonnet. GitHub Actions e Pages: grátis.
 
 ## Avisos importantes

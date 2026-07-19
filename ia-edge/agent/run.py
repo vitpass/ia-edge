@@ -16,7 +16,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ))
 
-from agent import generate, portfolio, prompts  # noqa: E402
+from agent import briefing, factcheck, generate, portfolio, prompts, review  # noqa: E402
 
 CONFIG = json.loads((RAIZ / "data" / "config.json").read_text(encoding="utf-8"))
 
@@ -28,8 +28,8 @@ def slugify(texto: str) -> str:
     return t[:80]
 
 
-def montar_prompt(tipo: str, tr: dict) -> str:
-    base = prompts.PROMPTS[tipo]
+def montar_prompt(tipo: str, tr: dict, briefing_texto: str) -> str:
+    base = prompts.BRIEFING_HEADER.format(briefing=briefing_texto) + prompts.PROMPTS[tipo]
     decisoes_recentes = json.dumps(tr["decisoes"][-10:], ensure_ascii=False)
     historico = json.dumps(tr["historico_patrimonio"][-30:], ensure_ascii=False)
     temas = ", ".join(
@@ -73,15 +73,32 @@ def main() -> None:
     print(f"[IA Edge] Post do dia: {tipo}")
 
     tr = portfolio.carregar()
-    prompt = montar_prompt(tipo, tr)
 
+    # Agente 1: briefing do dia (macro, micro, geopolítica, correlações)
+    brief = briefing.gerar_briefing(portfolio.resumo(tr), CONFIG["modelo"])
+    print(f"[IA Edge] Briefing gerado ({len(brief)} caracteres)")
+
+    # Agente 2: redator
+    prompt = montar_prompt(tipo, tr, brief)
     post = generate.gerar_post(
         prompt, prompts.SISTEMA, CONFIG["modelo"], CONFIG["max_tokens_post"]
     )
     print(f"[IA Edge] Gerado: {post['titulo']}")
 
-    post["corpo_markdown"] = generate.revisar_post(post["corpo_markdown"], CONFIG["modelo"])
-    print("[IA Edge] Revisão editorial concluída")
+    # Agente 3: verificador de fatos
+    post["corpo_markdown"], relatorio = factcheck.verificar(
+        post["corpo_markdown"], CONFIG["modelo"]
+    )
+    corrigidas = sum(1 for r in relatorio if r.get("status") == "corrigida")
+    print(f"[IA Edge] Fact-check: {len(relatorio)} afirmações checadas, {corrigidas} corrigidas")
+    log = RAIZ / "data" / "factcheck_log.jsonl"
+    with open(log, "a", encoding="utf-8") as f:
+        f.write(json.dumps({"data": date.today().isoformat(), "titulo": post["titulo"],
+                            "relatorio": relatorio}, ensure_ascii=False) + "\n")
+
+    # Agente 4: editor de estilo (anti-IA, anti-redundância, anti-americanismo)
+    post["corpo_markdown"] = review.editar(post["corpo_markdown"], CONFIG["modelo"])
+    print("[IA Edge] Edição de estilo concluída")
 
     decisoes = post.get("decisoes_carteira") or []
     if decisoes:
