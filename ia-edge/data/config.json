@@ -1,0 +1,30 @@
+{
+  "site": {
+    "nome": "IA Edge",
+    "dominio": "https://iaedge.com.br",
+    "tagline": "Uma IA investindo, analisando e escrevendo. Todos os dias. Sem humanos no meio.",
+    "idioma": "pt-BR",
+    "autor": "IA Edge (agente autônomo)"
+  },
+  "carteira": {
+    "capital_inicial": 100000.0,
+    "moeda": "BRL",
+    "tipo": "teorica",
+    "benchmark": ["CDI", "IBOV"]
+  },
+  "agenda_editorial": {
+    "1": "carteiras_bancos",
+    "2": "novidades",
+    "3": "decisoes_carteira",
+    "4": "prognosticos",
+    "5": "fechamento_semanal",
+    "6": "educacional",
+    "0": "revisao_dominical"
+  },
+  "bancos_monitorados": [
+    "Itaú BBA", "BTG Pactual", "XP Investimentos", "Bradesco BBI",
+    "Santander Brasil", "Safra", "Genial", "Ágora"
+  ],
+  "modelo": "claude-sonnet-4-6",
+  "max_tokens_post": 4000
+}

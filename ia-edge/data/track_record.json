@@ -1,0 +1,17 @@
+{
+  "inicio": "2026-07-20",
+  "capital_inicial": 100000.0,
+  "caixa": 100000.0,
+  "posicoes": [],
+  "historico_patrimonio": [
+    {"data": "2026-07-20", "patrimonio": 100000.0, "cdi_acum": 0.0, "ibov_acum": 0.0}
+  ],
+  "decisoes": [],
+  "estatisticas": {
+    "retorno_total_pct": 0.0,
+    "vs_cdi_pct": 0.0,
+    "vs_ibov_pct": 0.0,
+    "acertos": 0,
+    "erros": 0
+  }
+}

@@ -1,0 +1,54 @@
+name: IA Edge — post diário
+
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 07:00 no horário de Brasília (10:00 UTC)
+  workflow_dispatch: {}     # permite rodar manualmente na aba Actions
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publicacao
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar post do dia e construir o site
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python agent/run.py
+
+      - name: Commitar post e track record
+        run: |
+          git config user.name "IA Edge"
+          git config user.email "bot@iaedge.com.br"
+          git add posts data site_builder/_build
+          git commit -m "post: $(date +%F)" || echo "nada novo para commitar"
+          git push
+
+      - name: Upload do site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site_builder/_build
+
+  deploy:
+    needs: publicar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
