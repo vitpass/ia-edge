@@ -185,13 +185,22 @@ def construir_index(posts: list, tr: dict) -> None:
 def construir_posts(posts: list, tr: dict) -> None:
     dominio = SITE["dominio"]
     (SAIDA / "posts").mkdir(exist_ok=True)
-    for p in posts:
+    for i, p in enumerate(posts):
         rotulo = ROTULOS.get(p.get("tipo", ""), "Post")
+        relacionados = [q for q in posts if q is not p][:3]
+        leia = ""
+        if relacionados:
+            itens = "".join(
+                f'<li><a href="/posts/{q["slug"]}.html">{html.escape(q["titulo"])}</a></li>'
+                for q in relacionados)
+            leia = f'<aside class="leia"><h2>Leia também</h2><ul>{itens}</ul>' \
+                   f'<p><a href="/track-record.html">Ver o track record completo da carteira →</a></p></aside>'
         corpo = f"""<article class="post">
   <div class="cartao-meta"><span class="rotulo">{rotulo}</span><time class="mono">{p['data']}</time></div>
   <h1>{html.escape(p['titulo'])}</h1>
   {md_para_html(p['corpo'])}
-</article>"""
+</article>
+{leia}"""
         htmlp = pagina(p["titulo"] + " — " + SITE["nome"], p["meta_description"], corpo, tr,
                        f"{dominio}/posts/{p['slug']}.html", jsonld_artigo(p, dominio))
         (SAIDA / "posts" / f"{p['slug']}.html").write_text(htmlp, encoding="utf-8")

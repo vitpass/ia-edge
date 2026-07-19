@@ -2,7 +2,7 @@ name: IA Edge — post diário
 
 on:
   schedule:
-    - cron: "0 10 * * *"   # 07:00 no horário de Brasília (10:00 UTC)
+    - cron: "0 14 * * *"   # 11:00 no horário de Brasília (14:00 UTC)
   workflow_dispatch: {}     # permite rodar manualmente na aba Actions
 
 permissions:

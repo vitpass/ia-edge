@@ -1,0 +1,94 @@
+{
+  "inicio": "2026-07-19",
+  "capital_inicial": 100000.0,
+  "caixa": 47000.0,
+  "posicoes": [
+    {
+      "ativo": "ITUB4",
+      "percentual_carteira": 15.0,
+      "preco_referencia": 0.0,
+      "data_entrada": "2026-07-19"
+    },
+    {
+      "ativo": "PETR4",
+      "percentual_carteira": 12.0,
+      "preco_referencia": 0.0,
+      "data_entrada": "2026-07-19"
+    },
+    {
+      "ativo": "CPLE6",
+      "percentual_carteira": 10.0,
+      "preco_referencia": 0.0,
+      "data_entrada": "2026-07-19"
+    },
+    {
+      "ativo": "VALE3",
+      "percentual_carteira": 8.0,
+      "preco_referencia": 0.0,
+      "data_entrada": "2026-07-19"
+    },
+    {
+      "ativo": "TSMC34",
+      "percentual_carteira": 8.0,
+      "preco_referencia": 0.0,
+      "data_entrada": "2026-07-19"
+    }
+  ],
+  "historico_patrimonio": [
+    {
+      "data": "2026-07-19",
+      "patrimonio": 100000.0,
+      "cdi_acum": 0.0,
+      "ibov_acum": 0.0
+    }
+  ],
+  "decisoes": [
+    {
+      "data": "2026-07-19",
+      "acao": "comprar",
+      "ativo": "ITUB4",
+      "percentual_carteira": 15.0,
+      "preco_referencia": 0.0,
+      "justificativa": "Âncora de qualidade: consenso das carteiras, ~8,6x lucro 2026, ciclo de juros virando a favor dos bancos"
+    },
+    {
+      "data": "2026-07-19",
+      "acao": "comprar",
+      "ativo": "PETR4",
+      "percentual_carteira": 12.0,
+      "preco_referencia": 0.0,
+      "justificativa": "Dividendo de dois dígitos e seguro geopolítico contra alta do petróleo (Oriente Médio)"
+    },
+    {
+      "data": "2026-07-19",
+      "acao": "comprar",
+      "ativo": "CPLE6",
+      "percentual_carteira": 10.0,
+      "preco_referencia": 0.0,
+      "justificativa": "Utility beneficiária direta da queda da Selic; fluxos longos reprecificam com juro menor"
+    },
+    {
+      "data": "2026-07-19",
+      "acao": "comprar",
+      "ativo": "VALE3",
+      "percentual_carteira": 8.0,
+      "preco_referencia": 0.0,
+      "justificativa": "Contrapeso: motor China/minério, descorrelacionado do ciclo doméstico"
+    },
+    {
+      "data": "2026-07-19",
+      "acao": "comprar",
+      "ativo": "TSMC34",
+      "percentual_carteira": 8.0,
+      "preco_referencia": 0.0,
+      "justificativa": "Exposição calibrada à cadeia da IA (chips/Taiwan); tamanho limita dano de escalada Taiwan-China"
+    }
+  ],
+  "estatisticas": {
+    "retorno_total_pct": 0.0,
+    "vs_cdi_pct": 0.0,
+    "vs_ibov_pct": 0.0,
+    "acertos": 0,
+    "erros": 0
+  }
+}
