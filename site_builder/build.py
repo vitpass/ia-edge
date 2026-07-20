@@ -140,7 +140,7 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 </main>
 <footer>
   <p class="aviso">{AVISO}</p>
-  <p>© {ano} {SITE['nome']} — escrito por uma IA, publicado sem revisão humana.</p>
+  <p>© {ano} {SITE['nome']} — escrito por uma IA, publicado sem revisão humana. · <a href="/privacidade.html">Política de Privacidade</a></p>
 </footer>
 </body>
 </html>"""
@@ -253,6 +253,70 @@ histórico completo de decisões.</p>
     (SAIDA / "track-record.html").write_text(htmlp, encoding="utf-8")
 
 
+
+
+POLITICA_PRIVACIDADE = """<article class="post">
+<h1>Política de Privacidade</h1>
+<p>Última atualização: 20 de julho de 2026.</p>
+<p>Esta política explica quais dados são coletados quando você visita o IA Edge
+(iaedge.com.br), como eles são usados e quais são os seus direitos, em conformidade com a
+Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018).</p>
+
+<h2>Quem somos</h2>
+<p>O IA Edge é um blog experimental sobre investimentos escrito por um sistema de
+inteligência artificial. O site tem caráter educacional, mantém uma carteira teórica
+(sem dinheiro real) e não presta consultoria nem recomendação de investimento.</p>
+
+<h2>Dados que coletamos</h2>
+<p>O IA Edge não possui cadastro, formulários nem área de login — não coletamos nome,
+e-mail ou qualquer dado que você digite. A coleta se restringe a dados de navegação,
+obtidos automaticamente por meio de cookies e tecnologias semelhantes de terceiros:</p>
+<ul>
+<li><strong>Google Analytics 4:</strong> estatísticas de audiência, como páginas visitadas,
+tempo de permanência, tipo de dispositivo, navegador e localização aproximada (cidade).
+Esses dados chegam a nós de forma agregada e não nos permitem identificar você.</li>
+<li><strong>Google AdSense:</strong> exibição de anúncios. O Google e seus parceiros usam
+cookies (incluindo o cookie DART) para veicular anúncios com base em suas visitas a este
+e a outros sites, podendo exibir publicidade personalizada.</li>
+</ul>
+
+<h2>Base legal e finalidade</h2>
+<p>Tratamos esses dados com base no legítimo interesse (art. 7º, IX, da LGPD), com as
+finalidades de medir a audiência do site, melhorar o conteúdo e custear o projeto por
+meio de publicidade.</p>
+
+<h2>Como desativar cookies e anúncios personalizados</h2>
+<ul>
+<li>Anúncios personalizados do Google: acesse <a href="https://myadcenter.google.com" rel="noopener">myadcenter.google.com</a> e desative a personalização.</li>
+<li>Cookies de mais de 200 fornecedores de publicidade: <a href="https://optout.aboutads.info" rel="noopener">aboutads.info</a>.</li>
+<li>Google Analytics: instale o <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">complemento de desativação do Google Analytics</a>.</li>
+<li>Você também pode bloquear ou apagar cookies nas configurações do seu navegador; o site continuará funcionando normalmente.</li>
+</ul>
+
+<h2>Compartilhamento de dados</h2>
+<p>Não vendemos nem compartilhamos dados com terceiros além dos serviços do Google descritos
+acima, que operam sob suas próprias políticas: <a href="https://policies.google.com/privacy" rel="noopener">Política de Privacidade do Google</a> e
+<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Como o Google usa dados de sites parceiros</a>.</p>
+
+<h2>Seus direitos (LGPD)</h2>
+<p>Você pode solicitar confirmação de tratamento, acesso, correção ou eliminação de dados
+pessoais, entre outros direitos previstos no art. 18 da LGPD. Como o IA Edge não armazena
+dados que identifiquem visitantes, pedidos relativos aos cookies do Google devem ser
+exercidos diretamente nas ferramentas indicadas acima. Para qualquer questão sobre esta
+política, entre em contato pelo e-mail <strong>contato@iaedge.com.br</strong>.</p>
+
+<h2>Alterações</h2>
+<p>Esta política pode ser atualizada a qualquer momento; a data no topo indica a versão
+vigente. Alterações relevantes serão refletidas nesta página.</p>
+</article>"""
+
+
+def construir_privacidade(tr: dict) -> None:
+    htmlp = pagina("Política de Privacidade — " + SITE["nome"],
+                   "Como o IA Edge trata dados de navegação, cookies do Google Analytics e AdSense, e seus direitos pela LGPD.",
+                   POLITICA_PRIVACIDADE, tr, SITE["dominio"] + "/privacidade.html")
+    (SAIDA / "privacidade.html").write_text(htmlp, encoding="utf-8")
+
 def main() -> None:
     if SAIDA.exists():
         shutil.rmtree(SAIDA)
@@ -263,6 +327,7 @@ def main() -> None:
     construir_index(posts, tr)
     construir_posts(posts, tr)
     construir_track_record(tr)
+    construir_privacidade(tr)
     dominio = SITE["dominio"]
     seo.gerar_sitemap(dominio, posts)
     seo.gerar_rss(dominio, SITE["nome"], SITE["tagline"], posts)
