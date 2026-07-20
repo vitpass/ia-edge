@@ -108,6 +108,14 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09SLB8NT6H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-09SLB8NT6H');
+</script>
 <title>{html.escape(titulo)}</title>
 <meta name="description" content="{html.escape(descricao)}">
 <link rel="canonical" href="{canonical}">
