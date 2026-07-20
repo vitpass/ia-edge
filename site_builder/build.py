@@ -158,6 +158,53 @@ def jsonld_artigo(p: dict, dominio: str) -> str:
         "mainEntityOfPage": f"{dominio}/posts/{p['slug']}.html",
         "keywords": ", ".join(p.get("palavras_chave", [])),
     }
+    tags = '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+    faq = extrair_faq(p["corpo"])
+    if faq:
+        obj_faq = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": q,
+                 "acceptedAnswer": {"@type": "Answer", "text": a}}
+                for q, a in faq
+            ],
+        }
+        tags += '\n<script type="application/ld+json">' + json.dumps(obj_faq, ensure_ascii=False) + "</script>"
+    return tags
+
+
+def extrair_faq(corpo: str) -> list:
+    m = re.search(r"##+ Perguntas rápidas\s*\n(.*)$", corpo, re.S)
+    if not m:
+        return []
+    pares = re.findall(r"\*\*(.+?)\*\*\s*\n(.+?)(?=\n\s*\*\*|\Z)", m.group(1).strip(), re.S)
+    return [(q.strip(), " ".join(a.split())) for q, a in pares]
+
+
+def jsonld_site(dominio: str) -> str:
+    obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": f"{dominio}/#organizacao",
+                "name": SITE["nome"],
+                "url": dominio,
+                "description": SITE["tagline"],
+                "email": "contato@iaedge.com.br",
+            },
+            {
+                "@type": "WebSite",
+                "@id": f"{dominio}/#site",
+                "name": SITE["nome"],
+                "url": dominio,
+                "inLanguage": "pt-BR",
+                "description": SITE["tagline"],
+                "publisher": {"@id": f"{dominio}/#organizacao"},
+            },
+        ],
+    }
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
 
 
@@ -186,7 +233,8 @@ def construir_index(posts: list, tr: dict) -> None:
   publicado aqui — com as carteiras dos grandes bancos analisadas no caminho.</p>
 </section>""".replace(",", ".")
     conteudo = hero + '<section class="lista">' + (cartoes or "<p>Primeiro post chega amanhã.</p>") + "</section>"
-    htmlp = pagina(f"{SITE['nome']} — {SITE['tagline']}", SITE["tagline"], conteudo, tr, dominio + "/")
+    htmlp = pagina(f"{SITE['nome']} — {SITE['tagline']}", SITE["tagline"], conteudo, tr, dominio + "/",
+                   jsonld_site(dominio))
     (SAIDA / "index.html").write_text(htmlp, encoding="utf-8")
 
 
@@ -333,6 +381,7 @@ def main() -> None:
     seo.gerar_rss(dominio, SITE["nome"], SITE["tagline"], posts)
     seo.gerar_robots(dominio)
     seo.gerar_llms_txt(dominio, SITE["nome"], SITE["tagline"], posts, tr["estatisticas"])
+    seo.gerar_llms_full_txt(dominio, SITE["nome"], posts)
     cname = RAIZ / "CNAME"
     if cname.exists():
         shutil.copy(cname, SAIDA / "CNAME")

@@ -56,6 +56,7 @@ def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: di
         "",
         "## Páginas principais",
         f"- [Track record completo]({dominio}/track-record.html): evolução diária do patrimônio",
+        f"- [Conteúdo integral dos posts]({dominio}/llms-full.txt): todos os posts em texto puro",
         "",
         "## Últimos posts",
     ]
@@ -64,3 +65,25 @@ def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: di
     linhas += ["", "## Aviso", "Carteira teórica (paper trading). Conteúdo educacional, "
                "não é recomendação de investimento."]
     (SAIDA / "llms.txt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
+
+
+def gerar_llms_full_txt(dominio: str, nome: str, posts: list) -> None:
+    """GEO: versão integral dos posts em texto puro, para IAs lerem sem navegar página a página."""
+    partes = [
+        f"# {nome} — conteúdo integral",
+        "",
+        f"Todos os posts de {dominio} em texto puro (markdown), do mais recente ao mais antigo.",
+        "Carteira teórica (paper trading). Conteúdo educacional, não é recomendação de investimento.",
+        "",
+    ]
+    for p in posts:
+        partes += [
+            "---",
+            "",
+            f"## {p['titulo']}",
+            f"Data: {p['data']} | URL: {dominio}/posts/{p['slug']}.html",
+            "",
+            p["corpo"].strip(),
+            "",
+        ]
+    (SAIDA / "llms-full.txt").write_text("\n".join(partes) + "\n", encoding="utf-8")
