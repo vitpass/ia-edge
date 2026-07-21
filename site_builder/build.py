@@ -123,6 +123,11 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 <meta property="og:description" content="{html.escape(descricao)}">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="{SITE['nome']}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{html.escape(titulo)}">
+<meta name="twitter:description" content="{html.escape(descricao)}">
 <link rel="alternate" type="application/rss+xml" title="{SITE['nome']}" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -147,18 +152,23 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 
 
 def jsonld_artigo(p: dict, dominio: str) -> str:
+    url = f"{dominio}/posts/{p['slug']}.html"
     obj = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": p["titulo"],
         "datePublished": p["data"],
+        "dateModified": p.get("data_atualizacao") or p["data"],
         "description": p["meta_description"],
         "inLanguage": "pt-BR",
-        "author": {"@type": "Organization", "name": SITE["autor"]},
-        "mainEntityOfPage": f"{dominio}/posts/{p['slug']}.html",
+        "author": {"@type": "Organization", "name": SITE["autor"], "url": dominio},
+        "publisher": {"@type": "Organization", "@id": f"{dominio}/#organizacao",
+                      "name": SITE["nome"], "url": dominio},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
         "keywords": ", ".join(p.get("palavras_chave", [])),
     }
     tags = '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+    tags += "\n" + jsonld_breadcrumb([("Início", dominio + "/"), (p["titulo"], url)])
     faq = extrair_faq(p["corpo"])
     if faq:
         obj_faq = {
@@ -180,6 +190,34 @@ def extrair_faq(corpo: str) -> list:
         return []
     pares = re.findall(r"\*\*(.+?)\*\*\s*\n(.+?)(?=\n\s*\*\*|\Z)", m.group(1).strip(), re.S)
     return [(q.strip(), " ".join(a.split())) for q, a in pares]
+
+
+def jsonld_breadcrumb(itens: list) -> str:
+    """itens = [(nome, url), ...] na ordem da hierarquia."""
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": nome, "item": url}
+            for i, (nome, url) in enumerate(itens)
+        ],
+    }
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+
+
+def jsonld_webpage(titulo: str, descricao: str, url: str, dominio: str) -> str:
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": titulo,
+        "description": descricao,
+        "url": url,
+        "inLanguage": "pt-BR",
+        "isPartOf": {"@id": f"{dominio}/#site"},
+    }
+    tags = '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+    tags += "\n" + jsonld_breadcrumb([("Início", dominio + "/"), (titulo, url)])
+    return tags
 
 
 def jsonld_site(dominio: str) -> str:
@@ -295,9 +333,13 @@ histórico completo de decisões.</p>
 <h2>Evolução do patrimônio</h2>
 <table><thead><tr><th>Data</th><th>Patrimônio</th><th>CDI acum.</th><th>IBOV acum.</th></tr></thead><tbody>{linhas}</tbody></table>
 </article>"""
+    can = SITE["dominio"] + "/track-record.html"
     htmlp = pagina(f"Track record — {SITE['nome']}",
                    "Evolução diária da carteira teórica da IA Edge vs CDI e IBOV.",
-                   conteudo, tr, SITE["dominio"] + "/track-record.html")
+                   conteudo, tr, can,
+                   jsonld_webpage("Track record",
+                                  "Evolução diária da carteira teórica da IA Edge vs CDI e IBOV.",
+                                  can, SITE["dominio"]))
     (SAIDA / "track-record.html").write_text(htmlp, encoding="utf-8")
 
 
@@ -360,9 +402,11 @@ vigente. Alterações relevantes serão refletidas nesta página.</p>
 
 
 def construir_privacidade(tr: dict) -> None:
-    htmlp = pagina("Política de Privacidade — " + SITE["nome"],
-                   "Como o IA Edge trata dados de navegação, cookies do Google Analytics e AdSense, e seus direitos pela LGPD.",
-                   POLITICA_PRIVACIDADE, tr, SITE["dominio"] + "/privacidade.html")
+    can = SITE["dominio"] + "/privacidade.html"
+    desc = "Como o IA Edge trata dados de navegação, cookies do Google Analytics e AdSense, e seus direitos pela LGPD."
+    htmlp = pagina("Política de Privacidade — " + SITE["nome"], desc,
+                   POLITICA_PRIVACIDADE, tr, can,
+                   jsonld_webpage("Política de Privacidade", desc, can, SITE["dominio"]))
     (SAIDA / "privacidade.html").write_text(htmlp, encoding="utf-8")
 
 def main() -> None:
