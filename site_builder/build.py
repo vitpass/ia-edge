@@ -13,6 +13,7 @@ sys.path.insert(0, str(RAIZ))
 SAIDA = RAIZ / "site_builder" / "_build"
 
 from agent import seo  # noqa: E402
+from site_builder import imagens  # noqa: E402
 
 CONFIG = json.loads((RAIZ / "data" / "config.json").read_text(encoding="utf-8"))
 SITE = CONFIG["site"]
@@ -101,8 +102,9 @@ def sparkline(tr: dict) -> str:
 
 # ---------- templates ----------
 def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
-           jsonld: str = "") -> str:
+           jsonld: str = "", og_image: str = "") -> str:
     ano = tr["historico_patrimonio"][-1]["data"][:4]
+    og_image = og_image or f"{SITE['dominio']}/static/og/og-default.png"
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -125,9 +127,13 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="{SITE['nome']}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(titulo)}">
 <meta name="twitter:description" content="{html.escape(descricao)}">
+<meta name="twitter:image" content="{og_image}">
 <link rel="alternate" type="application/rss+xml" title="{SITE['nome']}" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -165,6 +171,7 @@ def jsonld_artigo(p: dict, dominio: str) -> str:
         "publisher": {"@type": "Organization", "@id": f"{dominio}/#organizacao",
                       "name": SITE["nome"], "url": dominio},
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "image": f"{dominio}/static/og/{p['slug']}.png",
         "keywords": ", ".join(p.get("palavras_chave", [])),
     }
     tags = '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
@@ -296,7 +303,8 @@ def construir_posts(posts: list, tr: dict) -> None:
 </article>
 {leia}"""
         htmlp = pagina(p["titulo"] + " — " + SITE["nome"], p["meta_description"], corpo, tr,
-                       f"{dominio}/posts/{p['slug']}.html", jsonld_artigo(p, dominio))
+                       f"{dominio}/posts/{p['slug']}.html", jsonld_artigo(p, dominio),
+                       og_image=f"{dominio}/static/og/{p['slug']}.png")
         (SAIDA / "posts" / f"{p['slug']}.html").write_text(htmlp, encoding="utf-8")
 
 
@@ -416,6 +424,7 @@ def main() -> None:
     shutil.copytree(RAIZ / "site_builder" / "static", SAIDA / "static")
     tr = json.loads((RAIZ / "data" / "track_record.json").read_text(encoding="utf-8"))
     posts = carregar_posts()
+    imagens.gerar_og(posts, tr, ROTULOS, SITE["tagline"])
     construir_index(posts, tr)
     construir_posts(posts, tr)
     construir_track_record(tr)
