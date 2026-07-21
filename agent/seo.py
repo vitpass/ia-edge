@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 """Gera artefatos de SEO (sitemap, RSS, robots) e GEO (llms.txt) a cada build."""
-from datetime import date
+from datetime import date, datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 SAIDA = RAIZ / "site_builder" / "_build"
+
+
+def _rfc822(iso: str) -> str:
+    """RSS 2.0 exige pubDate em RFC-822; a data dos posts é ISO (AAAA-MM-DD)."""
+    dt = datetime.fromisoformat(iso).replace(tzinfo=timezone.utc)
+    return format_datetime(dt)
 
 
 def gerar_sitemap(dominio: str, posts: list) -> None:
@@ -24,7 +31,7 @@ def gerar_rss(dominio: str, nome: str, tagline: str, posts: list) -> None:
     for p in posts[:20]:
         itens += (f"    <item>\n      <title>{p['titulo']}</title>\n"
                   f"      <link>{dominio}/posts/{p['slug']}.html</link>\n"
-                  f"      <pubDate>{p['data']}</pubDate>\n"
+                  f"      <pubDate>{_rfc822(p['data'])}</pubDate>\n"
                   f"      <description><![CDATA[{p['meta_description']}]]></description>\n"
                   f"    </item>\n")
     rss = (f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n'
