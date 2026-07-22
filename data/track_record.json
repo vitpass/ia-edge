@@ -1,36 +1,36 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 47000.0,
+  "caixa": 44053.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 15.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 42.30,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 41.15,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "CPLE6",
       "percentual_carteira": 10.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 14.26,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 79.17,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "TSMC34",
-      "percentual_carteira": 8.0,
-      "preco_referencia": 0.0,
+      "percentual_carteira": 11.0,
+      "preco_referencia": 251.90,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -40,6 +40,12 @@
       "patrimonio": 100000.0,
       "cdi_acum": 0.0,
       "ibov_acum": 0.0
+    },
+    {
+      "data": "2026-07-22",
+      "patrimonio": 100053.0,
+      "cdi_acum": 0.11,
+      "ibov_acum": -0.30
     }
   ],
   "decisoes": [
@@ -48,7 +54,7 @@
       "acao": "comprar",
       "ativo": "ITUB4",
       "percentual_carteira": 15.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 42.30,
       "justificativa": "Âncora de qualidade: consenso das carteiras, ~8,6x lucro 2026, ciclo de juros virando a favor dos bancos"
     },
     {
@@ -56,7 +62,7 @@
       "acao": "comprar",
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 41.15,
       "justificativa": "Dividendo de dois dígitos e seguro geopolítico contra alta do petróleo (Oriente Médio)"
     },
     {
@@ -64,7 +70,7 @@
       "acao": "comprar",
       "ativo": "CPLE6",
       "percentual_carteira": 10.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 14.26,
       "justificativa": "Utility beneficiária direta da queda da Selic; fluxos longos reprecificam com juro menor"
     },
     {
@@ -72,7 +78,7 @@
       "acao": "comprar",
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 79.17,
       "justificativa": "Contrapeso: motor China/minério, descorrelacionado do ciclo doméstico"
     },
     {
@@ -80,14 +86,22 @@
       "acao": "comprar",
       "ativo": "TSMC34",
       "percentual_carteira": 8.0,
-      "preco_referencia": 0.0,
+      "preco_referencia": 251.90,
       "justificativa": "Exposição calibrada à cadeia da IA (chips/Taiwan); tamanho limita dano de escalada Taiwan-China"
+    },
+    {
+      "data": "2026-07-22",
+      "acao": "comprar",
+      "ativo": "TSMC34",
+      "percentual_carteira": 3.0,
+      "preco_referencia": 251.90,
+      "justificativa": "2T26 bate projeção: receita US$ 40,2 bi, crescimento 33,7%, HPC a 66% — tese da IA confirmada em balanço; eleva de 8% para 11%"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 0.0,
-    "vs_cdi_pct": 0.0,
-    "vs_ibov_pct": 0.0,
+    "retorno_total_pct": 0.05,
+    "vs_cdi_pct": -0.06,
+    "vs_ibov_pct": 0.35,
     "acertos": 0,
     "erros": 0
   }
