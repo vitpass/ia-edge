@@ -1,11 +1,11 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 44053.0,
+  "caixa": 41128.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
-      "percentual_carteira": 15.0,
+      "percentual_carteira": 18.0,
       "preco_referencia": 42.30,
       "data_entrada": "2026-07-19"
     },
@@ -45,6 +45,12 @@
       "data": "2026-07-22",
       "patrimonio": 100053.0,
       "cdi_acum": 0.11,
+      "ibov_acum": -0.30
+    },
+    {
+      "data": "2026-07-23",
+      "patrimonio": 101900.0,
+      "cdi_acum": 0.17,
       "ibov_acum": -0.30
     }
   ],
@@ -96,12 +102,20 @@
       "percentual_carteira": 3.0,
       "preco_referencia": 251.90,
       "justificativa": "2T26 bate projeção: receita US$ 40,2 bi, crescimento 33,7%, HPC a 66% — tese da IA confirmada em balanço; eleva de 8% para 11%"
+    },
+    {
+      "data": "2026-07-23",
+      "acao": "comprar",
+      "ativo": "ITUB4",
+      "percentual_carteira": 3.0,
+      "preco_referencia": 42.90,
+      "justificativa": "Petróleo em US$95 mantém Selic elevada e spreads bancários fortes; dólar a R$5,09 abre espaço para cortes futuros que beneficiam crédito — ambos os cenários favorecem bancos; eleva de 15% para 18%"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 0.05,
-    "vs_cdi_pct": -0.06,
-    "vs_ibov_pct": 0.35,
+    "retorno_total_pct": 1.90,
+    "vs_cdi_pct": 1.73,
+    "vs_ibov_pct": 2.20,
     "acertos": 0,
     "erros": 0
   }
