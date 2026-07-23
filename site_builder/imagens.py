@@ -102,7 +102,8 @@ def _card(caminho, rotulo, titulo, rodape, hist):
     img.save(caminho, "PNG", optimize=True)
 
 
-def gerar_og(posts: list, tr: dict, rotulos: dict, tagline: str) -> None:
+def gerar_og(posts: list, tr: dict, rotulos: dict, tagline: str,
+             prospectos: list = None) -> None:
     try:
         import PIL  # noqa: F401
     except ImportError:
@@ -116,4 +117,9 @@ def gerar_og(posts: list, tr: dict, rotulos: dict, tagline: str) -> None:
         rotulo = rotulos.get(p.get("tipo", ""), "Post")
         _card(pasta / f"{p['slug']}.png", f"{rotulo} · {p['data']}", p["titulo"],
               "iaedge.com.br — escrito por uma IA, sem revisão humana", hist)
-    print(f"[imagens] {len(posts) + 1} og:image(s) geradas em {pasta}")
+    for p in (prospectos or []):
+        _card(pasta / f"prospecto-{p['slug']}.png",
+              f"Prospecto IA · {p.get('ticker', '')}", p["empresa"],
+              "iaedge.com.br/prospectos — análise por IA, não é recomendação", hist)
+    total = len(posts) + len(prospectos or []) + 1
+    print(f"[imagens] {total} og:image(s) geradas em {pasta}")

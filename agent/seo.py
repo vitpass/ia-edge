@@ -14,10 +14,14 @@ def _rfc822(iso: str) -> str:
     return format_datetime(dt)
 
 
-def gerar_sitemap(dominio: str, posts: list) -> None:
+def gerar_sitemap(dominio: str, posts: list, prospectos: list = None) -> None:
     urls = [f"  <url><loc>{dominio}/</loc><changefreq>daily</changefreq></url>"]
     urls += [f"  <url><loc>{dominio}/posts/{p['slug']}.html</loc><lastmod>{p['data']}</lastmod></url>"
              for p in posts]
+    if prospectos:
+        urls.append(f"  <url><loc>{dominio}/prospectos.html</loc><changefreq>weekly</changefreq></url>")
+        urls += [f"  <url><loc>{dominio}/prospectos/{p['slug']}.html</loc><lastmod>{p['data']}</lastmod></url>"
+                 for p in prospectos]
     urls.append(f"  <url><loc>{dominio}/track-record.html</loc><changefreq>daily</changefreq></url>")
     urls.append(f"  <url><loc>{dominio}/privacidade.html</loc><changefreq>yearly</changefreq></url>")
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -47,7 +51,8 @@ def gerar_robots(dominio: str) -> None:
     )
 
 
-def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: dict) -> None:
+def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: dict,
+                   prospectos: list = None) -> None:
     """GEO: arquivo llms.txt para que IAs (ChatGPT, Perplexity, Claude) entendam e citem o site."""
     linhas = [
         f"# {nome}",
@@ -69,12 +74,16 @@ def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: di
     ]
     linhas += [f"- [{p['titulo']}]({dominio}/posts/{p['slug']}.html): {p['meta_description']}"
                for p in posts[:15]]
+    if prospectos:
+        linhas += ["", "## Prospectos IA (empresas em crescimento, Brasil e mundo)"]
+        linhas += [f"- [{p['titulo']}]({dominio}/prospectos/{p['slug']}.html): {p['meta_description']}"
+                   for p in prospectos]
     linhas += ["", "## Aviso", "Carteira teórica (paper trading). Conteúdo educacional, "
                "não é recomendação de investimento."]
     (SAIDA / "llms.txt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
 
 
-def gerar_llms_full_txt(dominio: str, nome: str, posts: list) -> None:
+def gerar_llms_full_txt(dominio: str, nome: str, posts: list, prospectos: list = None) -> None:
     """GEO: versão integral dos posts em texto puro, para IAs lerem sem navegar página a página."""
     partes = [
         f"# {nome} — conteúdo integral",
@@ -89,6 +98,16 @@ def gerar_llms_full_txt(dominio: str, nome: str, posts: list) -> None:
             "",
             f"## {p['titulo']}",
             f"Data: {p['data']} | URL: {dominio}/posts/{p['slug']}.html",
+            "",
+            p["corpo"].strip(),
+            "",
+        ]
+    for p in (prospectos or []):
+        partes += [
+            "---",
+            "",
+            f"## {p['titulo']} [Prospecto IA]",
+            f"Data: {p['data']} | URL: {dominio}/prospectos/{p['slug']}.html",
             "",
             p["corpo"].strip(),
             "",

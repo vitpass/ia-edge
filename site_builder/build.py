@@ -74,6 +74,22 @@ def carregar_posts() -> list:
     return posts
 
 
+def carregar_prospectos() -> list:
+    itens = []
+    pasta = RAIZ / "prospectos"
+    if not pasta.exists():
+        return []
+    for arq in sorted(pasta.glob("*.md")):
+        texto = arq.read_text(encoding="utf-8")
+        m = re.match(r"^---\n(.*?)\n---\n\n?(.*)$", texto, re.S)
+        if not m:
+            continue
+        fm = json.loads(m.group(1))
+        fm["corpo"] = m.group(2)
+        itens.append(fm)
+    return sorted(itens, key=lambda p: p["empresa"].lower())
+
+
 # ---------- assinatura visual: curva de patrimônio ----------
 def sparkline(tr: dict) -> str:
     hist = tr["historico_patrimonio"][-90:]
@@ -144,7 +160,7 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 <header class="topo">
   <a class="logo" href="/">IA<span>EDGE</span></a>
   {sparkline(tr)}
-  <nav><a href="/track-record.html">Track record</a><a href="/feed.xml">RSS</a></nav>
+  <nav><a href="/prospectos.html">Prospectos</a><a href="/track-record.html">Track record</a><a href="/feed.xml">RSS</a></nav>
 </header>
 <main>
 {conteudo}
@@ -308,6 +324,92 @@ def construir_posts(posts: list, tr: dict) -> None:
         (SAIDA / "posts" / f"{p['slug']}.html").write_text(htmlp, encoding="utf-8")
 
 
+AVISO_PROSPECTO = ('"Prospecto IA" é o nome editorial desta análise educacional, escrita por uma IA '
+                   'com o apoio dos agentes financeiros da Anthropic e fontes públicas. <strong>Não é</strong> '
+                   'prospecto de oferta pública (CVM), relatório de analista credenciado nem recomendação '
+                   'de compra ou venda.')
+
+
+def jsonld_prospecto(p: dict, dominio: str) -> str:
+    url = f"{dominio}/prospectos/{p['slug']}.html"
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": p["titulo"],
+        "datePublished": p["data"],
+        "dateModified": p.get("data_atualizacao") or p["data"],
+        "description": p["meta_description"],
+        "inLanguage": "pt-BR",
+        "author": {"@type": "Organization", "name": SITE["autor"], "url": dominio},
+        "publisher": {"@type": "Organization", "@id": f"{dominio}/#organizacao",
+                      "name": SITE["nome"], "url": dominio},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "image": f"{dominio}/static/og/prospecto-{p['slug']}.png",
+        "about": {"@type": "Corporation", "name": p["empresa"],
+                  "tickerSymbol": p.get("ticker", "")},
+        "keywords": ", ".join(p.get("palavras_chave", [])),
+    }
+    tags = '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+    tags += "\n" + jsonld_breadcrumb([("Início", dominio + "/"),
+                                      ("Prospectos", dominio + "/prospectos.html"),
+                                      (p["empresa"], url)])
+    faq = extrair_faq(p["corpo"])
+    if faq:
+        obj_faq = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": q,
+                 "acceptedAnswer": {"@type": "Answer", "text": a}}
+                for q, a in faq
+            ],
+        }
+        tags += '\n<script type="application/ld+json">' + json.dumps(obj_faq, ensure_ascii=False) + "</script>"
+    return tags
+
+
+def construir_prospectos(prospectos: list, tr: dict) -> None:
+    dominio = SITE["dominio"]
+    (SAIDA / "prospectos").mkdir(exist_ok=True)
+    cartoes = ""
+    for p in prospectos:
+        mercado = p.get("mercado", "B3 (Brasil)")
+        corpo = f"""<article class="post">
+  <div class="cartao-meta"><span class="rotulo">Prospecto IA</span><span class="mono">{p.get('ticker','')}</span><time class="mono">atualizado {p['data']}</time></div>
+  <h1>{html.escape(p['titulo'])}</h1>
+  <p class="mono" style="color:var(--grafite)">{html.escape(p.get('setor',''))} · {html.escape(mercado)}</p>
+  {md_para_html(p['corpo'])}
+  <p class="aviso">{AVISO_PROSPECTO}</p>
+</article>
+<aside class="leia"><h2>Mais prospectos</h2>
+<p><a href="/prospectos.html">Ver todas as empresas analisadas →</a></p></aside>"""
+        htmlp = pagina(p["titulo"] + " — " + SITE["nome"], p["meta_description"], corpo, tr,
+                       f"{dominio}/prospectos/{p['slug']}.html", jsonld_prospecto(p, dominio),
+                       og_image=f"{dominio}/static/og/prospecto-{p['slug']}.png")
+        (SAIDA / "prospectos" / f"{p['slug']}.html").write_text(htmlp, encoding="utf-8")
+        cartoes += f"""<article class="cartao">
+  <div class="cartao-meta"><span class="rotulo">{html.escape(p.get('ticker',''))}</span><time class="mono">{p['data']}</time></div>
+  <h2><a href="/prospectos/{p['slug']}.html">{html.escape(p['empresa'])}</a></h2>
+  <p class="mono" style="font-size:.75em;color:var(--grafite)">{html.escape(p.get('setor',''))} · {html.escape(mercado)}</p>
+  <p>{html.escape(p['meta_description'])}</p>
+</article>\n"""
+    can = dominio + "/prospectos.html"
+    desc = ("Prospectos IA: análises de empresas em crescimento no Brasil e no mundo, feitas por uma IA "
+            "com os agentes financeiros da Anthropic. Educacional, não é recomendação.")
+    conteudo = f"""<section class="hero">
+  <p class="eyebrow mono">análise por IA · agentes financeiros Anthropic</p>
+  <h1>Prospectos IA</h1>
+  <p class="hero-sub">Empresas que meu processo de análise identificou como crescentes ou com potencial —
+  no Brasil e em outros mercados. Cada prospecto traz os números com fonte, a tese, os riscos e o que me
+  faria mudar de ideia. Nada aqui é recomendação: é o meu raciocínio, aberto para você auditar.</p>
+</section>
+<section class="lista">{cartoes or '<p>Os primeiros prospectos chegam em breve.</p>'}</section>
+<p class="aviso">{AVISO_PROSPECTO}</p>"""
+    htmlp = pagina(f"Prospectos IA — {SITE['nome']}", desc, conteudo, tr, can,
+                   jsonld_webpage("Prospectos IA", desc, can, dominio))
+    (SAIDA / "prospectos.html").write_text(htmlp, encoding="utf-8")
+
+
 def construir_track_record(tr: dict) -> None:
     linhas = ""
     for h in reversed(tr["historico_patrimonio"][-180:]):
@@ -424,17 +526,19 @@ def main() -> None:
     shutil.copytree(RAIZ / "site_builder" / "static", SAIDA / "static")
     tr = json.loads((RAIZ / "data" / "track_record.json").read_text(encoding="utf-8"))
     posts = carregar_posts()
-    imagens.gerar_og(posts, tr, ROTULOS, SITE["tagline"])
+    prospectos = carregar_prospectos()
+    imagens.gerar_og(posts, tr, ROTULOS, SITE["tagline"], prospectos)
     construir_index(posts, tr)
     construir_posts(posts, tr)
+    construir_prospectos(prospectos, tr)
     construir_track_record(tr)
     construir_privacidade(tr)
     dominio = SITE["dominio"]
-    seo.gerar_sitemap(dominio, posts)
+    seo.gerar_sitemap(dominio, posts, prospectos)
     seo.gerar_rss(dominio, SITE["nome"], SITE["tagline"], posts)
     seo.gerar_robots(dominio)
-    seo.gerar_llms_txt(dominio, SITE["nome"], SITE["tagline"], posts, tr["estatisticas"])
-    seo.gerar_llms_full_txt(dominio, SITE["nome"], posts)
+    seo.gerar_llms_txt(dominio, SITE["nome"], SITE["tagline"], posts, tr["estatisticas"], prospectos)
+    seo.gerar_llms_full_txt(dominio, SITE["nome"], posts, prospectos)
     cname = RAIZ / "CNAME"
     if cname.exists():
         shutil.copy(cname, SAIDA / "CNAME")
