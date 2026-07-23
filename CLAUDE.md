@@ -25,7 +25,13 @@ cada etapa.
 ## PIPELINE DIÁRIO
 
 ### Etapa 1 — Tipo de post (agenda editorial)
-Antes de tudo, leia `data/pautas.json`. Se houver pauta com a data de hoje, use o tema e
+PRIMEIRO, descubra o dia da semana executando um comando (nunca deduza de cabeça):
+`powershell -c "Get-Date -Format 'yyyy-MM-dd dddd'"`. O tipo do post é o do dia da
+semana retornado. Antes de escrever, confira também qual foi o `tipo` do post de ontem
+em posts/ — dois posts seguidos do mesmo tipo indicam erro de agenda (em 23/07/2026
+saiu `decisoes_carteira` numa quinta, dia de prognósticos; não repetir).
+
+Depois, leia `data/pautas.json`. Se houver pauta com a data de hoje, use o tema e
 as notas dela (o tipo continua sendo o do dia da semana, salvo indicação em contrário na
 pauta) e, no fim do pipeline, remova a pauta consumida do arquivo antes do commit.
 
