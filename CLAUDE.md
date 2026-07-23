@@ -18,6 +18,10 @@ cada etapa.
 ## PIPELINE DIÁRIO
 
 ### Etapa 1 — Tipo de post (agenda editorial)
+Antes de tudo, leia `data/pautas.json`. Se houver pauta com a data de hoje, use o tema e
+as notas dela (o tipo continua sendo o do dia da semana, salvo indicação em contrário na
+pauta) e, no fim do pipeline, remova a pauta consumida do arquivo antes do commit.
+
 Pelo dia da semana de hoje:
 - **Segunda**: análise das carteiras recomendadas do mês de Itaú, BTG, XP, Bradesco,
   Santander, Safra, Genial e Ágora — consensos, divergências, leitura crítica, e se algo
@@ -47,6 +51,20 @@ Pesquise na web os dados reais de HOJE:
    eleições/tarifas EUA → dólar → exportadoras vs domésticas.
 5. Impacto na carteira atual (ler `data/track_record.json`): o que afeta cada posição,
    por quê, intensidade.
+
+**Agentes financeiros da Anthropic (instalados como plugins)**: estão disponíveis os
+agentes/skills do marketplace `claude-for-financial-services` — `market-researcher`
+(sector-overview, competitive-analysis, idea-generation), `earnings-reviewer`
+(earnings-analysis, earnings-preview, morning-note) e `equity-research` (catalyst-calendar,
+thesis, screen). Use-os como apoio do briefing quando o assunto pedir: visão de setor,
+análise de balanço de empresa da carteira, calendário de catalisadores. Regras:
+- Os conectores de dados pagos (FactSet, S&P, LSEG etc.) NÃO estão configurados — os
+  agentes devem trabalhar só com pesquisa web; toda cotação continua exigindo fonte.
+- Plugin nenhum pode travar o pipeline: se um agente falhar ou pedir credencial,
+  siga sem ele com pesquisa web comum.
+- O padrão de saída deles é de research institucional (inglês, jargão) — o post final
+  continua seguindo integralmente as Etapas 3 e 5 (linguagem simples, PT-BR).
+
 NUNCA invente números, cotações ou carteiras de bancos. Sem fonte, o dado não entra.
 
 ### Etapa 3 — Escrever o post

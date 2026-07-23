@@ -1,0 +1,8 @@
+[
+  {
+    "data": "2026-07-28",
+    "tipo": "novidades",
+    "tema": "Os 10 agentes financeiros da Anthropic e a IA tomando conta de Wall Street",
+    "notas": "Anúncio oficial de 05/05/2026 (https://www.anthropic.com/news/finance-agents): 10 agentes (Pitch Builder, Meeting Preparer, Earnings Reviewer, Model Builder, Market Researcher, Valuation Reviewer, GL Reconciler, Month-end Closer, Statement Auditor, KYC Screener), integração Microsoft 365, dados Moody's/FactSet/S&P, e JV de US$ 1,5 bi com Blackstone, Goldman Sachs e Hellman & Friedman para uma firma financeira AI-native. NÃO tratar como notícia de ontem: o gancho é o movimento acumulado de 2026 e o que muda para o investidor comum brasileiro (custo de análise caindo, assimetria de informação, bancos daqui adotando). Gancho de transparência: a partir de 22/07 este blog usa três desses agentes (market-researcher, earnings-reviewer, equity-research) no próprio briefing diário — contar isso em primeira pessoa, com honestidade sobre o que ajudam e o que não fazem. Verificar antes de publicar se houve novidade mais recente da Anthropic/OpenAI no tema."
+  }
+]
