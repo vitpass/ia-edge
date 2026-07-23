@@ -21,15 +21,17 @@ A Embraer é a terceira maior fabricante de aviões do mundo e opera em quatro f
 
 ## Os números do crescimento
 
-O 1º trimestre de 2026 trouxe a maior receita da história da empresa para o período: US$ 1,447 bilhão, alta de 31% sobre o 1T25, com 44 aeronaves entregues contra 30 um ano antes, conforme o [comunicado oficial de resultados](https://skiesmag.com/press-releases/embraer-backlog-reaches-us32-1-billion-in-first-quarter-of-2026/). O backlog — a carteira de pedidos firmes ainda não entregues — chegou a US$ 32,1 bilhões, recorde pela sexta vez seguida. Só a aviação comercial soma US$ 15 bilhões em pedidos, alta de 50% em um ano.
+O 1º trimestre de 2026 trouxe a maior receita da história da empresa para o período: US$ 1,447 bilhão, alta de 31% sobre o 1T25, com 44 aeronaves entregues contra 30 um ano antes, conforme o [release oficial de resultados do 1T26, arquivado na SEC](https://www.sec.gov/Archives/edgar/data/1355444/000129281426002893/embjpr1q26_6k.htm) e disponível na [central de resultados do RI da Embraer](https://ri.embraer.com.br/informacoes-financeiras/central-de-resultados/). O backlog — a carteira de pedidos firmes ainda não entregues — chegou a US$ 32,1 bilhões, recorde pela sexta vez seguida e 22% acima de um ano antes. Só a aviação comercial soma US$ 15 bilhões em pedidos, alta de 50% em um ano; serviços e suporte cresceram 10% e defesa, 6%.
 
 O 2º trimestre confirmou o ritmo: 65 aeronaves entregues, o melhor segundo trimestre em 16 anos, sendo 45 executivas e 20 comerciais, como mostrou o [Poder360](https://www.poder360.com.br/poder-economia/embraer-entrega-65-avioes-no-2o-trimestre-de-2026/). No semestre, foram 109 entregas contra 91 no mesmo período de 2025.
 
-O destaque qualitativo é a divisão de Defesa e Segurança: receita de US$ 227 milhões no 1T26, crescimento de 63% em um ano, com margem EBIT ajustada (o lucro operacional como fatia da receita, excluindo itens pontuais) de 17%, segundo [levantamento da LRCA Defense](https://www.lrcadefenseconsulting.com/2026/05/embraer-registra-maior-receita-da.html). Era a divisão que dava prejuízo operacional há um ano.
+O destaque qualitativo é a divisão de Defesa e Segurança: receita de US$ 227 milhões no 1T26, crescimento de 63% em um ano, com margem EBIT ajustada (o lucro operacional como fatia da receita, excluindo itens pontuais) de 17%, segundo [levantamento da LRCA Defense](https://www.lrcadefenseconsulting.com/2026/05/embraer-registra-maior-receita-da.html) — o release oficial detalha que US$ 25 milhões em itens pontuais ajudaram essa margem. Ainda assim, era a divisão que operava no vermelho há um ano (margem de -1,6% no 1T25).
 
-Para 2026 inteiro, a projeção da empresa é de receita entre US$ 8,2 bilhões e US$ 8,5 bilhões, 80 a 85 jatos comerciais, 160 a 170 executivos, margem EBIT ajustada de 8,7% a 9,3% e geração de caixa livre de pelo menos US$ 200 milhões.
+No consolidado, o EBIT ajustado foi de US$ 94,0 milhões, com margem de 6,5% contra 5,6% no 1T25 — melhorou, mas segue abaixo da meta do ano. E o caixa conta uma história de transição: a Embraer fechou o trimestre com US$ 2,3 bilhões em caixa consolidado (mais uma linha de crédito de US$ 1 bilhão intocada), depois de queimar US$ 447,1 milhões de caixa livre no período. A queima veio principalmente de US$ 399,5 milhões a mais em estoques — aviões em fabricação para as entregas dos próximos trimestres, movimento típico de início de ano na aviação.
 
-Nem tudo brilha: o lucro líquido do 1T26 caiu para R$ 145,4 milhões, pressionado por câmbio e custos, como registrou o [Economic News Brasil](https://economicnewsbrasil.com.br/2026/05/08/resultado-embraer-1t26-receita-recorde-lucro-cai/). Crescer receita é uma coisa; converter em lucro, outra.
+Para 2026 inteiro, a projeção da empresa é de receita entre US$ 8,2 bilhões e US$ 8,5 bilhões, 80 a 85 jatos comerciais, 160 a 170 executivos, margem EBIT ajustada de 8,7% a 9,3% (já contando tarifa americana de importação de 10%) e geração de caixa livre de pelo menos US$ 200 milhões.
+
+Nem tudo brilha: o lucro líquido ajustado do 1T26 caiu para R$ 145,4 milhões, pressionado por câmbio e custos, como registrou o [Economic News Brasil](https://economicnewsbrasil.com.br/2026/05/08/resultado-embraer-1t26-receita-recorde-lucro-cai/) — no release oficial, foram US$ 27,7 milhões ajustados, contra US$ 50,0 milhões um ano antes. Crescer receita é uma coisa; converter em lucro, outra.
 
 ## A tese: por que pode continuar
 
@@ -37,7 +39,7 @@ Três pilares. Primeiro, o backlog de US$ 32,1 bilhões equivale a quase quatro 
 
 ## Riscos e o que me faria mudar de ideia
 
-**Tarifas dos EUA.** A empresa pagou cerca de US$ 80 milhões em tarifas até a Justiça americana derrubá-las em fevereiro de 2026, com 85% do impacto na aviação executiva, segundo o [Vale360 News](https://www.vale360news.com.br/tarifas-embraer-eua-empresa-pagou-us-80-milhoes-e-monitora-decisao-da-justica-para-reaver-o-dinheiro/). O tema saiu do radar, mas política comercial americana muda rápido — uma nova rodada de tarifas sobre aeronaves seria golpe direto na margem.
+**Tarifas dos EUA.** A empresa pagou cerca de US$ 80 milhões em tarifas até a Justiça americana derrubá-las em fevereiro de 2026, com 85% do impacto na aviação executiva, segundo o [Vale360 News](https://www.vale360news.com.br/tarifas-embraer-eua-empresa-pagou-us-80-milhoes-e-monitora-decisao-da-justica-para-reaver-o-dinheiro/). Mas o tema não saiu do radar: o release oficial do 1T26 registra US$ 13 milhões pagos em tarifas no trimestre, outros US$ 11 milhões parados em estoque para o 2T26, e a projeção de margem do ano segue contando com tarifa de 10%. Política comercial americana muda rápido — uma nova rodada sobre aeronaves seria golpe direto na margem.
 
 **Margem que não acompanha.** Receita recorde com lucro em queda foi o padrão do 1T26. Se a margem EBIT ajustada de 2026 vier abaixo do piso projetado de 8,7%, a tese de crescimento lucrativo perde força.
 

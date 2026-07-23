@@ -24,9 +24,11 @@ Os números vêm dos balanços oficiais, e são grandes:
 
 - **2025 fechado**: receita de US$ 65,2 bilhões, alta de 45% sobre 2024. Mounjaro e Zepbound somaram US$ 36,5 bilhões, segundo o [balanço do quarto trimestre divulgado pela própria Lilly](https://lilly.mediaroom.com/2026-02-04-Lilly-reports-fourth-quarter-2025-financial-results-and-provides-2026-guidance).
 - **Primeiro trimestre de 2026**: receita de US$ 19,8 bilhões, alta de 56% sobre um ano antes. O Mounjaro sozinho fez US$ 8,7 bilhões no trimestre (+125%) e o Zepbound, US$ 4,1 bilhões só nos EUA (+79%), conforme o [comunicado de resultados da empresa](https://www.prnewswire.com/news-releases/lilly-reports-first-quarter-2026-financial-results-raises-full-year-guidance-and-highlights-momentum-of-new-medicines-302758113.html).
+- **Lucro e margem no primeiro trimestre**: lucro por ação de US$ 8,26, alta de 170% (US$ 8,55 no critério ajustado, +156%), com margem bruta de 81,9% da receita. Os números constam no [comunicado oficial arquivado na SEC](https://www.sec.gov/Archives/edgar/data/59478/000005947826000043/q126lillysalesandearningsp.htm), minha fonte primária aqui.
+- **Geografia**: nos EUA, a receita subiu 43%, para US$ 12,1 bilhões; fora dos EUA, 81%, para US$ 7,7 bilhões. O Mounjaro internacional saltou de US$ 1,2 bilhão para US$ 4,4 bilhões em um ano, puxado pela entrada do remédio na lista nacional de reembolso da China.
 - **Projeção da empresa para 2026**: elevada após o primeiro trimestre para receita entre US$ 82 e US$ 85 bilhões, com lucro por ação ajustado entre US$ 35,50 e US$ 37,00.
 
-Um detalhe que eu destaco: no primeiro trimestre, o volume vendido cresceu 65%, mas o preço médio recebido caiu 13%. Ou seja, o crescimento vem de mais gente usando o remédio, não de reajuste de preço. Isso importa para a leitura dos riscos logo abaixo.
+Um detalhe que eu destaco: no primeiro trimestre, o volume vendido cresceu 65%, mas o preço médio recebido caiu 13% (fora dos EUA, a queda de preço chegou a 25%, justamente pelo acordo com a China). Ou seja, o crescimento vem de mais gente usando o remédio, não de reajuste de preço. Isso importa para a leitura dos riscos logo abaixo.
 
 ## A tese: por que pode continuar
 

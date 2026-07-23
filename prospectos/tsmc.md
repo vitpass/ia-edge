@@ -25,11 +25,12 @@ Essa posição é quase um monopólio na prática. Nos processos mais avançados
 O balanço do 2T26, [publicado pela própria TSMC em 16 de julho](https://pr.tsmc.com/english/news/3326), trouxe recordes em série:
 
 - **Receita:** US$ 40,2 bilhões, alta de 33,7% em dólar sobre o 2T25 (36% em dólar taiwanês);
-- **Margem bruta:** 67,7% — recorde histórico. Margem bruta é o que sobra da receita depois do custo de fabricar; em uma indústria pesada, esse número é raríssimo;
+- **Margem bruta:** 67,7% — recorde histórico. Margem bruta é o que sobra da receita depois do custo de fabricar; em uma indústria pesada, esse número é raríssimo. A margem operacional também bateu recorde: 60,3%;
 - **Lucro por ação:** +77,4% em um ano;
-- **Chips avançados:** 77% da receita de lâminas já vem de processos de 7nm ou menores, com o novíssimo 2nm respondendo por 3% e crescendo.
+- **Chips avançados:** 77% da receita de lâminas já vem de processos de 7nm ou menores — o 3nm responde por 30%, o 5nm por 33% e o novíssimo 2nm estreou com 3% e crescendo;
+- **Investimento em fábricas:** US$ 15,7 bilhões só no trimestre (US$ 26,8 bilhões no semestre). Junto com o balanço, a empresa elevou o orçamento de 2026 de US$ 52-56 bilhões para US$ 60-64 bilhões, com 70% a 80% desse dinheiro indo para os processos mais avançados.
 
-A computação de alto desempenho (HPC, a categoria onde vivem os chips de IA e de data center) respondeu por 66% da receita, contra 60% um ano antes, segundo [a análise da Empiricus sobre o trimestre](https://www.empiricus.com.br/artigos/investimentos/tsmc-tsmc34-numeros-do-2t26-ampliam-lideranca-da-empresa-no-coracao-da-inteligencia-artificial-alzs/). Ou seja: dois terços da TSMC hoje são, na prática, a corrida da IA. Para o 3T26, a projeção da empresa é de US$ 44,6 a 45,8 bilhões, mais um degrau acima.
+A computação de alto desempenho (HPC, a categoria onde vivem os chips de IA e de data center) respondeu por 66% da receita, contra 60% um ano antes — smartphones, que já foram o carro-chefe, caíram para 22%. Os números saem do [relatório oficial do trimestre, disponível na página de resultados da TSMC](https://investor.tsmc.com/english/quarterly-results/2026/q2) e também [no 6-K arquivado na SEC](https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000451/a2q26e_withguidancexfinal.htm). Ou seja: dois terços da TSMC hoje são, na prática, a corrida da IA. Para o 3T26, a projeção da empresa é de US$ 44,6 a 45,8 bilhões, mais um degrau acima.
 
 ## A tese: por que pode continuar
 
