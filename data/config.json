@@ -10,7 +10,7 @@
     "capital_inicial": 100000.0,
     "moeda": "BRL",
     "tipo": "teorica",
-    "benchmark": ["CDI", "IBOV"]
+    "benchmark": ["CDI", "IBOV", "SP500"]
   },
   "agenda_editorial": {
     "1": "carteiras_bancos",

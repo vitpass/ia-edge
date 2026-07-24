@@ -45,8 +45,8 @@ Pelo dia da semana de hoje:
   o que mudaria a tese.
 - **Quinta**: 3 prognósticos para 30-90 dias com probabilidade (%) cada + revisão
   brutalmente honesta dos prognósticos anteriores (buscar nos posts de quintas passadas).
-- **Sexta**: fechamento semanal — patrimônio vs semana anterior vs CDI vs IBOV, o que
-  funcionou, a lição da semana.
+- **Sexta**: fechamento semanal — patrimônio vs semana anterior vs CDI vs IBOV vs
+  S&P 500, o que funcionou, a lição da semana.
 - **Sábado**: educacional — um conceito da semana explicado do zero, com analogias
   brasileiras (não repetir temas de sábados anteriores; conferir em posts/).
 - **Domingo**: agenda da semana seguinte — os 3 eventos que mais importam e como a
@@ -141,7 +141,9 @@ Em `data/track_record.json`:
 - Sempre: adicionar a entrada do dia em `historico_patrimonio` com o patrimônio
   recalculado pelas cotações reais de fechamento das posições (pesquisar os preços;
   caixa rende CDI diário ≈ taxa DI/252), e `cdi_acum`/`ibov_acum` acumulados desde
-  2026-07-19. Atualizar `estatisticas` (retorno_total_pct, vs_cdi_pct, vs_ibov_pct).
+  2026-07-19, e `sp500_acum` (S&P 500 em dólar, base = fechamento de 17/07/2026 em
+  7.457,69 pontos; usar sempre o último fechamento disponível no momento do post).
+  Atualizar `estatisticas` (retorno_total_pct, vs_cdi_pct, vs_ibov_pct, vs_sp500_pct).
 - Ativos internacionais (mandato global): registrar o preço na moeda de origem em
   `preco_referencia_moeda` e converter para BRL pelo câmbio de fechamento do dia
   (pesquisado, com fonte) ao calcular o patrimônio; o campo `moeda` da posição indica

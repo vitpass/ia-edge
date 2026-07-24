@@ -62,9 +62,11 @@ def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: di
         f"carteira teórica de investimentos no Brasil com transparência total: todas as decisões, "
         f"acertos e erros são publicados diariamente.",
         "",
-        f"Retorno total da carteira teórica até {date.today().isoformat()}: "
+        f"Retorno total da carteira teórica (mandato global) até {date.today().isoformat()}: "
         f"{stats['retorno_total_pct']}% (vs CDI: {stats['vs_cdi_pct']:+}pp, "
-        f"vs IBOV: {stats['vs_ibov_pct']:+}pp).",
+        f"vs IBOV: {stats['vs_ibov_pct']:+}pp"
+        + (f", vs S&P 500: {stats['vs_sp500_pct']:+}pp" if stats.get("vs_sp500_pct") is not None else "")
+        + ").",
         "",
         "## Páginas principais",
         f"- [Track record completo]({dominio}/track-record.html): evolução diária do patrimônio",

@@ -413,10 +413,13 @@ def construir_prospectos(prospectos: list, tr: dict) -> None:
 def construir_track_record(tr: dict) -> None:
     linhas = ""
     for h in reversed(tr["historico_patrimonio"][-180:]):
+        sp = h.get("sp500_acum")
+        sp_txt = f"{sp:.2f}%" if sp is not None else "&mdash;"
         linhas += (f"<tr><td class='mono'>{h['data']}</td>"
                    f"<td class='mono'>R$ {h['patrimonio']:,.2f}</td>"
                    f"<td class='mono'>{h['cdi_acum']:.2f}%</td>"
-                   f"<td class='mono'>{h['ibov_acum']:.2f}%</td></tr>\n").replace(",", "v").replace(".", ",").replace("v", ".")
+                   f"<td class='mono'>{h['ibov_acum']:.2f}%</td>"
+                   f"<td class='mono'>{sp_txt}</td></tr>\n").replace(",", "v").replace(".", ",").replace("v", ".")
     pos = "".join(
         f"<tr><td>{p['ativo']}</td><td class='mono'>{p['percentual_carteira']:.1f}%</td>"
         f"<td class='mono'>{p.get('data_entrada','—')}</td></tr>" for p in tr["posicoes"]
@@ -427,21 +430,25 @@ def construir_track_record(tr: dict) -> None:
         for d in reversed(tr["decisoes"][-50:])
     ) or "<tr><td colspan='4'>Nenhuma decisão ainda.</td></tr>"
     e = tr["estatisticas"]
+    vs_sp = e.get("vs_sp500_pct")
+    sp_stat = (f'<div><span class="mono grande">{vs_sp:+.2f}pp</span><span>vs S&amp;P 500</span></div>'
+               if vs_sp is not None else "")
     conteudo = f"""<article class="post">
 <h1>Track record</h1>
-<p>Tudo em aberto: patrimônio da carteira teórica, comparação com CDI e IBOV, posições e o
-histórico completo de decisões.</p>
+<p>Tudo em aberto: patrimônio da carteira teórica global, comparação com CDI, IBOV e
+S&amp;P 500, posições e o histórico completo de decisões.</p>
 <div class="stats">
   <div><span class="mono grande">{e['retorno_total_pct']:+.2f}%</span><span>retorno total</span></div>
   <div><span class="mono grande">{e['vs_cdi_pct']:+.2f}pp</span><span>vs CDI</span></div>
   <div><span class="mono grande">{e['vs_ibov_pct']:+.2f}pp</span><span>vs IBOV</span></div>
+  {sp_stat}
 </div>
 <h2>Posições atuais</h2>
 <table><thead><tr><th>Ativo</th><th>% carteira</th><th>Entrada</th></tr></thead><tbody>{pos}</tbody></table>
 <h2>Decisões</h2>
 <table><thead><tr><th>Data</th><th>Ação</th><th>Ativo</th><th>Justificativa</th></tr></thead><tbody>{dec}</tbody></table>
 <h2>Evolução do patrimônio</h2>
-<table><thead><tr><th>Data</th><th>Patrimônio</th><th>CDI acum.</th><th>IBOV acum.</th></tr></thead><tbody>{linhas}</tbody></table>
+<table><thead><tr><th>Data</th><th>Patrimônio</th><th>CDI acum.</th><th>IBOV acum.</th><th>S&amp;P 500 acum.</th></tr></thead><tbody>{linhas}</tbody></table>
 </article>"""
     can = SITE["dominio"] + "/track-record.html"
     htmlp = pagina(f"Track record — {SITE['nome']}",
