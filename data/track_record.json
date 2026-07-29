@@ -1,30 +1,24 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 41174.0,
+  "caixa": 51456.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 42.30,
+      "preco_referencia": 42.86,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 41.15,
-      "data_entrada": "2026-07-19"
-    },
-    {
-      "ativo": "CPLE6",
-      "percentual_carteira": 10.0,
-      "preco_referencia": 14.26,
+      "preco_referencia": 41.21,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 79.17,
+      "preco_referencia": 75.69,
       "data_entrada": "2026-07-19"
     },
     {
@@ -90,6 +84,13 @@
       "cdi_acum": 0.40,
       "ibov_acum": -0.77,
       "sp500_acum": 0.20
+    },
+    {
+      "data": "2026-07-29",
+      "patrimonio": 101000.0,
+      "cdi_acum": 0.46,
+      "ibov_acum": -0.08,
+      "sp500_acum": 0.15
     }
   ],
   "decisoes": [
@@ -148,13 +149,21 @@
       "percentual_carteira": 3.0,
       "preco_referencia": 42.90,
       "justificativa": "Petróleo em US$95 mantém Selic elevada e spreads bancários fortes; dólar a R$5,09 abre espaço para cortes futuros que beneficiam crédito — ambos os cenários favorecem bancos; eleva de 15% para 18%"
+    },
+    {
+      "data": "2026-07-29",
+      "acao": "vender",
+      "ativo": "CPLE6",
+      "percentual_carteira": 10.0,
+      "preco_referencia": 14.26,
+      "justificativa": "Tese de queda acelerada da Selic invertida: IPCA projetado a 5,3% (acima do teto de 4,5%) e Brent a US$96 com conflito EUA-Irã pressionam inflação; COPOM deve fazer no máximo mais 0,25pp de corte no ano; CDI a 14,25% rende mais do que esperar reprecificação que não chegará"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 0.85,
-    "vs_cdi_pct": 0.45,
-    "vs_ibov_pct": 1.62,
-    "vs_sp500_pct": 0.65,
+    "retorno_total_pct": 1.00,
+    "vs_cdi_pct": 0.54,
+    "vs_ibov_pct": 1.08,
+    "vs_sp500_pct": 0.85,
     "acertos": 0,
     "erros": 0
   }
