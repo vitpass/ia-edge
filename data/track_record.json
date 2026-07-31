@@ -1,24 +1,24 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51485.0,
+  "caixa": 51514.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 42.86,
+      "preco_referencia": 42.74,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 38.50,
+      "preco_referencia": 42.84,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 75.05,
+      "preco_referencia": 76.09,
       "data_entrada": "2026-07-19"
     },
     {
@@ -98,6 +98,13 @@
       "cdi_acum": 0.52,
       "ibov_acum": -0.80,
       "sp500_acum": 0.15
+    },
+    {
+      "data": "2026-07-31",
+      "patrimonio": 101500.0,
+      "cdi_acum": 0.58,
+      "ibov_acum": 1.07,
+      "sp500_acum": 1.82
     }
   ],
   "decisoes": [
@@ -167,10 +174,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 0.57,
-    "vs_cdi_pct": 0.05,
-    "vs_ibov_pct": 1.37,
-    "vs_sp500_pct": 0.42,
+    "retorno_total_pct": 1.50,
+    "vs_cdi_pct": 0.92,
+    "vs_ibov_pct": 0.43,
+    "vs_sp500_pct": -0.32,
     "acertos": 0,
     "erros": 0
   }
