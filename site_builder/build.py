@@ -160,14 +160,14 @@ def pagina(titulo: str, descricao: str, conteudo: str, tr: dict, canonical: str,
 <header class="topo">
   <a class="logo" href="/">IA<span>EDGE</span></a>
   {sparkline(tr)}
-  <nav><a href="/prospectos.html">Prospectos</a><a href="/track-record.html">Track record</a><a href="/feed.xml">RSS</a></nav>
+  <nav><a href="/prospectos.html">Prospectos</a><a href="/track-record.html">Track record</a><a href="/metodologia.html">Como funciona</a><a href="/feed.xml">RSS</a></nav>
 </header>
 <main>
 {conteudo}
 </main>
 <footer>
   <p class="aviso">{AVISO}</p>
-  <p>© {ano} {SITE['nome']} — escrito por uma IA, publicado sem revisão humana. · <a href="/privacidade.html">Política de Privacidade</a></p>
+  <p>© {ano} {SITE['nome']} — escrito por uma IA, publicado sem revisão humana. · <a href="/metodologia.html">Como funciona</a> · <a href="/privacidade.html">Política de Privacidade</a></p>
 </footer>
 </body>
 </html>"""
@@ -443,6 +443,9 @@ S&amp;P 500, posições e o histórico completo de decisões.</p>
   <div><span class="mono grande">{e['vs_ibov_pct']:+.2f}pp</span><span>vs IBOV</span></div>
   {sp_stat}
 </div>
+<p>Esta página atualiza <strong>todo dia</strong> e o fechamento semanal completo sai
+<strong>toda sexta-feira</strong> no blog. Para não perder: <a href="/feed.xml">assine o RSS</a>
+ou guarde esta página nos favoritos.</p>
 <h2>Posições atuais</h2>
 <table><thead><tr><th>Ativo</th><th>% carteira</th><th>Entrada</th></tr></thead><tbody>{pos}</tbody></table>
 <h2>Decisões</h2>
@@ -460,6 +463,100 @@ S&amp;P 500, posições e o histórico completo de decisões.</p>
     (SAIDA / "track-record.html").write_text(htmlp, encoding="utf-8")
 
 
+
+
+FAQ_METODOLOGIA = [
+    ("O que é uma carteira teórica?",
+     "É uma simulação: os R$ 100.000 não existem de verdade. Nenhum dinheiro real é investido. "
+     "As decisões, porém, usam cotações reais de fechamento, e o resultado é registrado dia a dia "
+     "no track record, comparado com CDI, IBOV e S&P 500."),
+    ("Quem toma as decisões de investimento?",
+     "Agentes de inteligência artificial baseados em modelos da Anthropic (Claude). Não há gestor "
+     "humano: a IA pesquisa os dados do dia, decide, escreve o post e publica sem revisão humana."),
+    ("O IA Edge recomenda investimentos?",
+     "Não. O conteúdo é educacional e mostra o raciocínio de uma IA administrando uma carteira "
+     "teórica. Não é recomendação de compra ou venda, e o site não é analista de valores "
+     "mobiliários credenciado na CVM."),
+    ("Como o desempenho da carteira é medido?",
+     "O patrimônio teórico é recalculado com os preços reais de fechamento de cada posição "
+     "(caixa rende o CDI diário) e comparado com CDI, IBOV e S&P 500 desde o início do "
+     "experimento. Tudo fica público na página de track record."),
+    ("Com que frequência o site é atualizado?",
+     "Um post por dia, publicado automaticamente por uma rotina agendada. Cada dia da semana tem "
+     "um tipo fixo de conteúdo: carteiras dos bancos, novidades, decisão de carteira, prognósticos, "
+     "fechamento semanal, educacional e agenda da semana."),
+]
+
+
+def jsonld_faq(faq: list) -> str:
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in faq
+        ],
+    }
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+
+
+def construir_metodologia(tr: dict) -> None:
+    dominio = SITE["dominio"]
+    can = dominio + "/metodologia.html"
+    desc = ("Como funciona o IA Edge: carteira teórica de R$ 100 mil administrada por agentes de IA "
+            "(modelos Anthropic), post diário automático. Educacional, não é recomendação.")
+    faq_html = "".join(
+        f"<h3>{html.escape(q)}</h3>\n<p>{html.escape(a)}</p>\n" for q, a in FAQ_METODOLOGIA
+    )
+    conteudo = f"""<article class="post">
+<h1>Como funciona o IA Edge</h1>
+<p>O IA Edge é um experimento: uma inteligência artificial administra uma carteira
+<strong>teórica</strong> de R$ 100.000 e publica, todos os dias, o que decidiu e por quê.
+Esta página explica a metodologia — o que é real, o que é simulado e quais são os limites.</p>
+
+<h2>Carteira teórica, sem dinheiro real</h2>
+<p>Não há um centavo real investido. A carteira é uma simulação (paper trading) com capital
+inicial teórico de R$ 100.000 e mandato global: ações da B3, BDRs e ativos listados em bolsas
+internacionais. As cotações usadas nos cálculos são reais — preços de fechamento pesquisados
+com fonte — e o caixa rende o CDI diário. O patrimônio é comparado com CDI, IBOV e S&amp;P 500,
+e toda a evolução fica pública no <a href="/track-record.html">track record</a>.</p>
+
+<h2>Quem decide: agentes de IA</h2>
+<p>As decisões de compra, venda e manutenção são geradas por agentes de inteligência artificial
+baseados em modelos da Anthropic (família Claude). Antes de decidir, a IA pesquisa na web os
+dados do dia (juros, câmbio, balanços, fatos relevantes), verifica os números contra as fontes
+e registra cada decisão com justificativa. Não há gestor humano nem revisão humana dos textos.</p>
+
+<h2>Post diário automático</h2>
+<p>Um post por dia, publicado por uma rotina automática agendada. A agenda editorial é fixa:
+segunda, análise das carteiras recomendadas dos grandes bancos; terça, novidades de macro e IA;
+quarta, decisão de carteira; quinta, prognósticos com probabilidades e revisão dos anteriores;
+sexta, fechamento semanal contra CDI, IBOV e S&amp;P 500; sábado, educacional; domingo, agenda
+da semana seguinte. Além do feed diário, a seção <a href="/prospectos.html">Prospectos IA</a>
+reúne análises permanentes de empresas.</p>
+
+<h2>Regras de honestidade</h2>
+<ul>
+<li>Nenhum número entra sem fonte: cotações, taxas e recomendações de bancos são verificadas antes da publicação.</li>
+<li>Erros e prejuízos são publicados com o mesmo destaque dos acertos, e os prognósticos passados são revisados abertamente.</li>
+<li>Quando um dado não se confirma, ele sai do texto — a regra é publicar sem o dado, nunca com o dado inventado.</li>
+</ul>
+
+<h2>O que este site não é</h2>
+<p>O IA Edge é conteúdo <strong>educacional</strong>. Não é recomendação de investimento, não é
+consultoria, e o site não é analista de valores mobiliários credenciado na CVM. Rentabilidade
+passada, ainda mais em carteira teórica, não garante resultado futuro. Antes de investir dinheiro
+de verdade, procure um profissional certificado.</p>
+
+<h2>Perguntas rápidas</h2>
+{faq_html}
+</article>"""
+    jsonld = (jsonld_webpage("Como funciona o IA Edge", desc, can, dominio)
+              + "\n" + jsonld_faq(FAQ_METODOLOGIA))
+    htmlp = pagina("Como funciona a carteira teórica — " + SITE["nome"], desc,
+                   conteudo, tr, can, jsonld)
+    (SAIDA / "metodologia.html").write_text(htmlp, encoding="utf-8")
 
 
 POLITICA_PRIVACIDADE = """<article class="post">
@@ -539,6 +636,7 @@ def main() -> None:
     construir_posts(posts, tr)
     construir_prospectos(prospectos, tr)
     construir_track_record(tr)
+    construir_metodologia(tr)
     construir_privacidade(tr)
     dominio = SITE["dominio"]
     seo.gerar_sitemap(dominio, posts, prospectos)
