@@ -461,6 +461,14 @@ ou guarde esta página nos favoritos.</p>
                                   "Evolução diária da carteira teórica da IA Edge vs CDI e IBOV.",
                                   can, SITE["dominio"]))
     (SAIDA / "track-record.html").write_text(htmlp, encoding="utf-8")
+    # alias p/ URL truncada que circulou (track-record.htm sem o "l")
+    (SAIDA / "track-record.htm").write_text(
+        '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">'
+        '<meta http-equiv="refresh" content="0; url=/track-record.html">'
+        f'<link rel="canonical" href="{SITE["dominio"]}/track-record.html">'
+        '<title>Track record — IA Edge</title></head>'
+        '<body><a href="/track-record.html">Ir para o track record</a></body></html>',
+        encoding="utf-8")
 
 
 
