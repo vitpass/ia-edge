@@ -18,13 +18,13 @@
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 76.09,
+      "preco_referencia": 73.66,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "TSMC34",
       "percentual_carteira": 11.0,
-      "preco_referencia": 276.54,
+      "preco_referencia": 284.00,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -126,6 +126,13 @@
       "cdi_acum": 0.70,
       "ibov_acum": 1.54,
       "sp500_acum": 1.90
+    },
+    {
+      "data": "2026-08-04",
+      "patrimonio": 101750.0,
+      "cdi_acum": 0.76,
+      "ibov_acum": 1.54,
+      "sp500_acum": 1.90
     }
   ],
   "decisoes": [
@@ -195,10 +202,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.00,
-    "vs_cdi_pct": 1.30,
-    "vs_ibov_pct": 0.46,
-    "vs_sp500_pct": 0.10,
+    "retorno_total_pct": 1.75,
+    "vs_cdi_pct": 0.99,
+    "vs_ibov_pct": 0.21,
+    "vs_sp500_pct": -0.15,
     "acertos": 0,
     "erros": 0
   }
