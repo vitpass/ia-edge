@@ -1,7 +1,7 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51571.0,
+  "caixa": 51836.4,
   "posicoes": [
     {
       "ativo": "ITUB4",
@@ -238,6 +238,13 @@
       "cdi_acum": 1.64,
       "ibov_acum": -3.70,
       "sp500_acum": 1.95
+    },
+    {
+      "data": "2026-08-23",
+      "patrimonio": 99658.0,
+      "cdi_acum": 1.64,
+      "ibov_acum": -1.56,
+      "sp500_acum": 2.91
     }
   ],
   "decisoes": [
@@ -307,10 +314,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": -0.40,
-    "vs_cdi_pct": -2.04,
-    "vs_ibov_pct": 3.30,
-    "vs_sp500_pct": -2.35,
+    "retorno_total_pct": -0.34,
+    "vs_cdi_pct": -1.98,
+    "vs_ibov_pct": 1.22,
+    "vs_sp500_pct": -3.25,
     "acertos": 0,
     "erros": 0
   }
