@@ -12,13 +12,13 @@
     {
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 44.30,
+      "preco_referencia": 41.64,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 75.03,
+      "preco_referencia": 72.97,
       "data_entrada": "2026-07-19"
     },
     {
@@ -273,6 +273,13 @@
       "cdi_acum": 1.98,
       "ibov_acum": 0.71,
       "sp500_acum": 3.41
+    },
+    {
+      "data": "2026-09-01",
+      "patrimonio": 102230.0,
+      "cdi_acum": 2.04,
+      "ibov_acum": 1.72,
+      "sp500_acum": 3.20
     }
   ],
   "decisoes": [
@@ -342,10 +349,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.30,
-    "vs_cdi_pct": 0.32,
-    "vs_ibov_pct": 1.59,
-    "vs_sp500_pct": -1.11,
+    "retorno_total_pct": 2.23,
+    "vs_cdi_pct": 0.19,
+    "vs_ibov_pct": 0.51,
+    "vs_sp500_pct": -0.97,
     "acertos": 0,
     "erros": 0
   }
