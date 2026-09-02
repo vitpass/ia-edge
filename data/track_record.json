@@ -1,24 +1,24 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51600.0,
+  "caixa": 55478.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 38.60,
+      "preco_referencia": 39.88,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
-      "percentual_carteira": 12.0,
-      "preco_referencia": 41.64,
+      "percentual_carteira": 10.0,
+      "preco_referencia": 46.87,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 72.97,
+      "preco_referencia": 78.30,
       "data_entrada": "2026-07-19"
     },
     {
@@ -280,6 +280,13 @@
       "cdi_acum": 2.04,
       "ibov_acum": 1.72,
       "sp500_acum": 3.20
+    },
+    {
+      "data": "2026-09-02",
+      "patrimonio": 105010.0,
+      "cdi_acum": 2.10,
+      "ibov_acum": 2.16,
+      "sp500_acum": 3.20
     }
   ],
   "decisoes": [
@@ -346,13 +353,21 @@
       "percentual_carteira": 10.0,
       "preco_referencia": 14.26,
       "justificativa": "Tese de queda acelerada da Selic invertida: IPCA projetado a 5,3% (acima do teto de 4,5%) e Brent a US$96 com conflito EUA-Irã pressionam inflação; COPOM deve fazer no máximo mais 0,25pp de corte no ano; CDI a 14,25% rende mais do que esperar reprecificação que não chegará"
+    },
+    {
+      "data": "2026-09-02",
+      "acao": "vender",
+      "ativo": "PETR4",
+      "percentual_carteira": 2.0,
+      "preco_referencia": 46.87,
+      "justificativa": "Ataque a petroleiro no Estreito de Ormuz e retomada de confrontos EUA-Irã levam o Brent a US$95,51 e a PETR4 a subir quase 14% desde a entrada em poucos dias; reduzo de 12% para 10% para travar parte do ganho geopolítico e normalizar o peso da posição, sem abandonar a tese de dividendo"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.23,
-    "vs_cdi_pct": 0.19,
-    "vs_ibov_pct": 0.51,
-    "vs_sp500_pct": -0.97,
+    "retorno_total_pct": 5.01,
+    "vs_cdi_pct": 2.91,
+    "vs_ibov_pct": 2.85,
+    "vs_sp500_pct": 1.81,
     "acertos": 0,
     "erros": 0
   }
