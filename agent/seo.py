@@ -23,6 +23,7 @@ def gerar_sitemap(dominio: str, posts: list, prospectos: list = None) -> None:
         urls += [f"  <url><loc>{dominio}/prospectos/{p['slug']}.html</loc><lastmod>{p['data']}</lastmod></url>"
                  for p in prospectos]
     urls.append(f"  <url><loc>{dominio}/track-record.html</loc><changefreq>daily</changefreq></url>")
+    urls.append(f"  <url><loc>{dominio}/metodologia.html</loc><changefreq>monthly</changefreq></url>")
     urls.append(f"  <url><loc>{dominio}/privacidade.html</loc><changefreq>yearly</changefreq></url>")
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -70,6 +71,7 @@ def gerar_llms_txt(dominio: str, nome: str, tagline: str, posts: list, stats: di
         "",
         "## Páginas principais",
         f"- [Track record completo]({dominio}/track-record.html): evolução diária do patrimônio",
+        f"- [Como funciona (metodologia)]({dominio}/metodologia.html): carteira teórica, agentes de IA e limites",
         f"- [Conteúdo integral dos posts]({dominio}/llms-full.txt): todos os posts em texto puro",
         "",
         "## Últimos posts",
