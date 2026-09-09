@@ -1,24 +1,24 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51600.0,
+  "caixa": 55091.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 41.92,
+      "preco_referencia": 42.43,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
-      "percentual_carteira": 12.0,
-      "preco_referencia": 47.11,
+      "percentual_carteira": 9.0,
+      "preco_referencia": 48.06,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 78.62,
+      "preco_referencia": 79.05,
       "data_entrada": "2026-07-19"
     },
     {
@@ -315,6 +315,13 @@
       "cdi_acum": 2.33,
       "ibov_acum": 2.65,
       "sp500_acum": 3.34
+    },
+    {
+      "data": "2026-09-09",
+      "patrimonio": 103480.0,
+      "cdi_acum": 2.39,
+      "ibov_acum": 2.65,
+      "sp500_acum": 2.89
     }
   ],
   "decisoes": [
@@ -381,13 +388,21 @@
       "percentual_carteira": 10.0,
       "preco_referencia": 14.26,
       "justificativa": "Tese de queda acelerada da Selic invertida: IPCA projetado a 5,3% (acima do teto de 4,5%) e Brent a US$96 com conflito EUA-Irã pressionam inflação; COPOM deve fazer no máximo mais 0,25pp de corte no ano; CDI a 14,25% rende mais do que esperar reprecificação que não chegará"
+    },
+    {
+      "data": "2026-09-09",
+      "acao": "vender",
+      "ativo": "PETR4",
+      "percentual_carteira": 3.0,
+      "preco_referencia": 48.06,
+      "justificativa": "Brent bateu US$ 100 pela primeira vez desde julho com o fluxo por Ormuz colapsando; realizo parte do ganho geopolítico antes de uma trégua reverter o prêmio, e reduzo a mesma commodity que ameaça atrasar os cortes de Selic que sustentam ITUB4"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.80,
-    "vs_cdi_pct": 0.47,
-    "vs_ibov_pct": 0.15,
-    "vs_sp500_pct": -0.54,
+    "retorno_total_pct": 3.48,
+    "vs_cdi_pct": 1.09,
+    "vs_ibov_pct": 0.83,
+    "vs_sp500_pct": 0.59,
     "acertos": 0,
     "erros": 0
   }
