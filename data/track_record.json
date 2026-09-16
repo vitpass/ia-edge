@@ -1,30 +1,30 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51600.0,
+  "caixa": 55080.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 41.92,
+      "preco_referencia": 42.45,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
-      "percentual_carteira": 12.0,
-      "preco_referencia": 47.11,
+      "percentual_carteira": 9.0,
+      "preco_referencia": 50.47,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 78.62,
+      "preco_referencia": 76.00,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "TSMC34",
       "percentual_carteira": 11.0,
-      "preco_referencia": 267.95,
+      "preco_referencia": 277.58,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -315,6 +315,13 @@
       "cdi_acum": 2.33,
       "ibov_acum": 2.65,
       "sp500_acum": 3.34
+    },
+    {
+      "data": "2026-09-16",
+      "patrimonio": 103390.0,
+      "cdi_acum": 2.67,
+      "ibov_acum": 7.36,
+      "sp500_acum": 2.40
     }
   ],
   "decisoes": [
@@ -381,13 +388,21 @@
       "percentual_carteira": 10.0,
       "preco_referencia": 14.26,
       "justificativa": "Tese de queda acelerada da Selic invertida: IPCA projetado a 5,3% (acima do teto de 4,5%) e Brent a US$96 com conflito EUA-Irã pressionam inflação; COPOM deve fazer no máximo mais 0,25pp de corte no ano; CDI a 14,25% rende mais do que esperar reprecificação que não chegará"
+    },
+    {
+      "data": "2026-09-16",
+      "acao": "vender",
+      "ativo": "PETR4",
+      "percentual_carteira": 3.0,
+      "preco_referencia": 50.47,
+      "justificativa": "Realização parcial após alta de 7,1% em dias com Brent perto de US$110 (ataque a oleoduto saudita e suspensão de embarques em Yanbu); tese de dividendo e hedge geopolítico mantida, mas reduzo o tamanho no pico de um choque de oferta pontual e reforço caixa a 18 dias do 1º turno das eleições"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.80,
-    "vs_cdi_pct": 0.47,
-    "vs_ibov_pct": 0.15,
-    "vs_sp500_pct": -0.54,
+    "retorno_total_pct": 3.39,
+    "vs_cdi_pct": 0.72,
+    "vs_ibov_pct": -3.97,
+    "vs_sp500_pct": 0.99,
     "acertos": 0,
     "erros": 0
   }
