@@ -1,12 +1,12 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 51600.0,
+  "caixa": 49656.31,
   "posicoes": [
     {
       "ativo": "ITUB4",
-      "percentual_carteira": 18.0,
-      "preco_referencia": 41.92,
+      "percentual_carteira": 20.0,
+      "preco_referencia": 42.05,
       "data_entrada": "2026-07-19"
     },
     {
@@ -336,6 +336,13 @@
       "cdi_acum": 2.82,
       "ibov_acum": 6.65,
       "sp500_acum": 2.40
+    },
+    {
+      "data": "2026-09-23",
+      "patrimonio": 101013.68,
+      "cdi_acum": 2.93,
+      "ibov_acum": 7.91,
+      "sp500_acum": 4.12
     }
   ],
   "decisoes": [
@@ -402,13 +409,21 @@
       "percentual_carteira": 10.0,
       "preco_referencia": 14.26,
       "justificativa": "Tese de queda acelerada da Selic invertida: IPCA projetado a 5,3% (acima do teto de 4,5%) e Brent a US$96 com conflito EUA-Irã pressionam inflação; COPOM deve fazer no máximo mais 0,25pp de corte no ano; CDI a 14,25% rende mais do que esperar reprecificação que não chegará"
+    },
+    {
+      "data": "2026-09-23",
+      "acao": "comprar",
+      "ativo": "ITUB4",
+      "percentual_carteira": 2.0,
+      "preco_referencia": 43.18,
+      "justificativa": "Ata do Copom reforça corte gradual da Selic e crédito bancário aquecido; bancos lideram alta de 7,91% do Ibovespa no ano enquanto caixa parado (51%) deixa a carteira para trás; eleva de 18% para 20%"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 2.80,
-    "vs_cdi_pct": -0.02,
-    "vs_ibov_pct": -3.85,
-    "vs_sp500_pct": 0.40,
+    "retorno_total_pct": 1.01,
+    "vs_cdi_pct": -1.92,
+    "vs_ibov_pct": -6.90,
+    "vs_sp500_pct": -3.11,
     "acertos": 0,
     "erros": 0
   }
