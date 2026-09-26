@@ -343,6 +343,13 @@
       "cdi_acum": 3.10,
       "ibov_acum": 5.64,
       "sp500_acum": 3.83
+    },
+    {
+      "data": "2026-09-26",
+      "patrimonio": 103700.0,
+      "cdi_acum": 3.10,
+      "ibov_acum": 5.64,
+      "sp500_acum": 3.83
     }
   ],
   "decisoes": [
