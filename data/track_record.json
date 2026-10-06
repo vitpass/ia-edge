@@ -6,25 +6,25 @@
     {
       "ativo": "ITUB4",
       "percentual_carteira": 18.0,
-      "preco_referencia": 45.00,
+      "preco_referencia": 50.00,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
       "percentual_carteira": 12.0,
-      "preco_referencia": 49.30,
+      "preco_referencia": 55.36,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "VALE3",
       "percentual_carteira": 8.0,
-      "preco_referencia": 71.60,
+      "preco_referencia": 70.56,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "TSMC34",
       "percentual_carteira": 11.0,
-      "preco_referencia": 296.00,
+      "preco_referencia": 302.00,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -413,6 +413,13 @@
       "cdi_acum": 3.43,
       "ibov_acum": 6.56,
       "sp500_acum": 3.00
+    },
+    {
+      "data": "2026-10-06",
+      "patrimonio": 108400.0,
+      "cdi_acum": 3.49,
+      "ibov_acum": 14.77,
+      "sp500_acum": 4.24
     }
   ],
   "decisoes": [
@@ -482,10 +489,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 5.32,
-    "vs_cdi_pct": 1.89,
-    "vs_ibov_pct": -1.24,
-    "vs_sp500_pct": 2.32,
+    "retorno_total_pct": 8.40,
+    "vs_cdi_pct": 4.91,
+    "vs_ibov_pct": -6.37,
+    "vs_sp500_pct": 4.16,
     "acertos": 0,
     "erros": 0
   }
