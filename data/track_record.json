@@ -24,7 +24,7 @@
     {
       "ativo": "TSMC34",
       "percentual_carteira": 11.0,
-      "preco_referencia": 288.00,
+      "preco_referencia": 288.0,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -40,14 +40,14 @@
       "data": "2026-07-22",
       "patrimonio": 100053.0,
       "cdi_acum": 0.11,
-      "ibov_acum": -0.30,
+      "ibov_acum": -0.3,
       "sp500_acum": 0.55
     },
     {
       "data": "2026-07-23",
       "patrimonio": 101900.0,
       "cdi_acum": 0.17,
-      "ibov_acum": -0.30,
+      "ibov_acum": -0.3,
       "sp500_acum": 0.55
     },
     {
@@ -75,15 +75,15 @@
       "data": "2026-07-27",
       "patrimonio": 100811.0,
       "cdi_acum": 0.34,
-      "ibov_acum": -1.50,
-      "sp500_acum": -0.30
+      "ibov_acum": -1.5,
+      "sp500_acum": -0.3
     },
     {
       "data": "2026-07-28",
       "patrimonio": 100850.0,
-      "cdi_acum": 0.40,
+      "cdi_acum": 0.4,
       "ibov_acum": -0.77,
-      "sp500_acum": 0.20
+      "sp500_acum": 0.2
     },
     {
       "data": "2026-07-29",
@@ -96,7 +96,7 @@
       "data": "2026-07-30",
       "patrimonio": 100570.0,
       "cdi_acum": 0.52,
-      "ibov_acum": -0.80,
+      "ibov_acum": -0.8,
       "sp500_acum": 0.15
     },
     {
@@ -111,34 +111,34 @@
       "patrimonio": 101700.0,
       "cdi_acum": 0.64,
       "ibov_acum": 1.54,
-      "sp500_acum": 1.90
+      "sp500_acum": 1.9
     },
     {
       "data": "2026-08-02",
       "patrimonio": 101700.0,
       "cdi_acum": 0.64,
       "ibov_acum": 1.54,
-      "sp500_acum": 1.90
+      "sp500_acum": 1.9
     },
     {
       "data": "2026-08-03",
       "patrimonio": 102000.0,
-      "cdi_acum": 0.70,
+      "cdi_acum": 0.7,
       "ibov_acum": 1.54,
-      "sp500_acum": 1.90
+      "sp500_acum": 1.9
     },
     {
       "data": "2026-08-04",
       "patrimonio": 101750.0,
       "cdi_acum": 0.76,
       "ibov_acum": 1.54,
-      "sp500_acum": 1.90
+      "sp500_acum": 1.9
     },
     {
       "data": "2026-08-05",
       "patrimonio": 102100.0,
       "cdi_acum": 0.82,
-      "ibov_acum": 1.70,
+      "ibov_acum": 1.7,
       "sp500_acum": 3.74
     },
     {
@@ -174,42 +174,42 @@
       "patrimonio": 100500.0,
       "cdi_acum": 1.22,
       "ibov_acum": -2.76,
-      "sp500_acum": 3.90
+      "sp500_acum": 3.9
     },
     {
       "data": "2026-08-14",
       "patrimonio": 99800.0,
       "cdi_acum": 1.28,
-      "ibov_acum": -3.00,
+      "ibov_acum": -3.0,
       "sp500_acum": 4.79
     },
     {
       "data": "2026-08-15",
       "patrimonio": 99830.0,
       "cdi_acum": 1.34,
-      "ibov_acum": -3.00,
+      "ibov_acum": -3.0,
       "sp500_acum": 4.79
     },
     {
       "data": "2026-08-16",
       "patrimonio": 99830.0,
       "cdi_acum": 1.34,
-      "ibov_acum": -3.00,
+      "ibov_acum": -3.0,
       "sp500_acum": 4.79
     },
     {
       "data": "2026-08-17",
       "patrimonio": 99830.0,
-      "cdi_acum": 1.40,
-      "ibov_acum": -3.00,
+      "cdi_acum": 1.4,
+      "ibov_acum": -3.0,
       "sp500_acum": 4.79
     },
     {
       "data": "2026-08-18",
       "patrimonio": 99900.0,
       "cdi_acum": 1.46,
-      "ibov_acum": -3.20,
-      "sp500_acum": 4.90
+      "ibov_acum": -3.2,
+      "sp500_acum": 4.9
     },
     {
       "data": "2026-08-19",
@@ -222,14 +222,14 @@
       "data": "2026-08-20",
       "patrimonio": 100380.0,
       "cdi_acum": 1.58,
-      "ibov_acum": -3.50,
+      "ibov_acum": -3.5,
       "sp500_acum": 4.65
     },
     {
       "data": "2026-08-21",
       "patrimonio": 99600.0,
       "cdi_acum": 1.64,
-      "ibov_acum": -3.70,
+      "ibov_acum": -3.7,
       "sp500_acum": 1.95
     },
     {
@@ -237,34 +237,34 @@
       "patrimonio": 100300.0,
       "cdi_acum": 1.64,
       "ibov_acum": -1.92,
-      "sp500_acum": 2.90
+      "sp500_acum": 2.9
     },
     {
       "data": "2026-08-23",
       "patrimonio": 100300.0,
       "cdi_acum": 1.64,
       "ibov_acum": -1.92,
-      "sp500_acum": 2.90
+      "sp500_acum": 2.9
     },
     {
       "data": "2026-08-27",
       "patrimonio": 101800.0,
       "cdi_acum": 1.86,
-      "ibov_acum": 0.10,
+      "ibov_acum": 0.1,
       "sp500_acum": 2.86
     },
     {
       "data": "2026-08-29",
       "patrimonio": 102000.0,
       "cdi_acum": 1.92,
-      "ibov_acum": 0.40,
+      "ibov_acum": 0.4,
       "sp500_acum": 3.41
     },
     {
       "data": "2026-08-30",
       "patrimonio": 102000.0,
       "cdi_acum": 1.92,
-      "ibov_acum": 0.40,
+      "ibov_acum": 0.4,
       "sp500_acum": 3.41
     },
     {
@@ -279,34 +279,34 @@
       "patrimonio": 102230.0,
       "cdi_acum": 2.04,
       "ibov_acum": 1.72,
-      "sp500_acum": 3.20
+      "sp500_acum": 3.2
     },
     {
       "data": "2026-09-04",
       "patrimonio": 103350.0,
       "cdi_acum": 2.21,
-      "ibov_acum": 2.80,
+      "ibov_acum": 2.8,
       "sp500_acum": 3.92
     },
     {
       "data": "2026-09-05",
       "patrimonio": 103350.0,
       "cdi_acum": 2.21,
-      "ibov_acum": 2.80,
+      "ibov_acum": 2.8,
       "sp500_acum": 3.92
     },
     {
       "data": "2026-09-06",
       "patrimonio": 103350.0,
       "cdi_acum": 2.21,
-      "ibov_acum": 2.80,
+      "ibov_acum": 2.8,
       "sp500_acum": 3.92
     },
     {
       "data": "2026-09-07",
       "patrimonio": 103379.0,
       "cdi_acum": 2.27,
-      "ibov_acum": 2.80,
+      "ibov_acum": 2.8,
       "sp500_acum": 3.92
     },
     {
@@ -328,33 +328,33 @@
       "patrimonio": 102800.0,
       "cdi_acum": 2.82,
       "ibov_acum": 6.65,
-      "sp500_acum": 2.40
+      "sp500_acum": 2.4
     },
     {
       "data": "2026-09-20",
       "patrimonio": 102800.0,
       "cdi_acum": 2.82,
       "ibov_acum": 6.65,
-      "sp500_acum": 2.40
+      "sp500_acum": 2.4
     },
     {
       "data": "2026-09-25",
       "patrimonio": 103700.0,
-      "cdi_acum": 3.10,
+      "cdi_acum": 3.1,
       "ibov_acum": 5.64,
       "sp500_acum": 3.83
     },
     {
       "data": "2026-09-26",
       "patrimonio": 103700.0,
-      "cdi_acum": 3.10,
+      "cdi_acum": 3.1,
       "ibov_acum": 5.64,
       "sp500_acum": 3.83
     },
     {
       "data": "2026-09-27",
       "patrimonio": 103700.0,
-      "cdi_acum": 3.10,
+      "cdi_acum": 3.1,
       "ibov_acum": 5.64,
       "sp500_acum": 3.83
     },
@@ -369,21 +369,21 @@
       "data": "2026-09-29",
       "patrimonio": 104150.0,
       "cdi_acum": 3.22,
-      "ibov_acum": 5.70,
+      "ibov_acum": 5.7,
       "sp500_acum": 3.57
     },
     {
       "data": "2026-09-30",
       "patrimonio": 104200.0,
       "cdi_acum": 3.27,
-      "ibov_acum": 5.50,
+      "ibov_acum": 5.5,
       "sp500_acum": 3.57
     },
     {
       "data": "2026-10-01",
       "patrimonio": 104700.0,
       "cdi_acum": 3.33,
-      "ibov_acum": 5.50,
+      "ibov_acum": 5.5,
       "sp500_acum": 2.61
     },
     {
@@ -391,28 +391,28 @@
       "patrimonio": 105040.0,
       "cdi_acum": 3.38,
       "ibov_acum": 5.66,
-      "sp500_acum": 3.00
+      "sp500_acum": 3.0
     },
     {
       "data": "2026-10-03",
       "patrimonio": 105040.0,
       "cdi_acum": 3.38,
       "ibov_acum": 5.66,
-      "sp500_acum": 3.00
+      "sp500_acum": 3.0
     },
     {
       "data": "2026-10-04",
       "patrimonio": 105040.0,
       "cdi_acum": 3.38,
       "ibov_acum": 5.66,
-      "sp500_acum": 3.00
+      "sp500_acum": 3.0
     },
     {
       "data": "2026-10-05",
       "patrimonio": 105324.0,
       "cdi_acum": 3.43,
       "ibov_acum": 6.56,
-      "sp500_acum": 3.00
+      "sp500_acum": 3.0
     },
     {
       "data": "2026-10-06",
@@ -433,19 +433,19 @@
       "patrimonio": 109800.0,
       "cdi_acum": 3.59,
       "ibov_acum": 17.2,
-      "sp500_acum": 5.00
+      "sp500_acum": 5.0
     },
     {
       "data": "2026-10-09",
       "patrimonio": 110000.0,
       "cdi_acum": 3.64,
       "ibov_acum": 17.5,
-      "sp500_acum": 5.00
+      "sp500_acum": 5.0
     },
     {
       "data": "2026-10-10",
       "patrimonio": 110000.0,
-      "cdi_acum": 3.70,
+      "cdi_acum": 3.7,
       "ibov_acum": 17.5,
       "sp500_acum": 4.75
     },
@@ -469,6 +469,13 @@
       "cdi_acum": 3.81,
       "ibov_acum": 17.5,
       "sp500_acum": 4.74
+    },
+    {
+      "data": "2026-10-14",
+      "patrimonio": 109935.0,
+      "cdi_acum": 3.86,
+      "ibov_acum": 16.28,
+      "sp500_acum": 4.74
     }
   ],
   "decisoes": [
@@ -477,7 +484,7 @@
       "acao": "comprar",
       "ativo": "ITUB4",
       "percentual_carteira": 15.0,
-      "preco_referencia": 42.30,
+      "preco_referencia": 42.3,
       "justificativa": "Âncora de qualidade: consenso das carteiras, ~8,6x lucro 2026, ciclo de juros virando a favor dos bancos"
     },
     {
@@ -509,7 +516,7 @@
       "acao": "comprar",
       "ativo": "TSMC34",
       "percentual_carteira": 8.0,
-      "preco_referencia": 251.90,
+      "preco_referencia": 251.9,
       "justificativa": "Exposição calibrada à cadeia da IA (chips/Taiwan); tamanho limita dano de escalada Taiwan-China"
     },
     {
@@ -517,7 +524,7 @@
       "acao": "comprar",
       "ativo": "TSMC34",
       "percentual_carteira": 3.0,
-      "preco_referencia": 251.90,
+      "preco_referencia": 251.9,
       "justificativa": "2T26 bate projeção: receita US$ 40,2 bi, crescimento 33,7%, HPC a 66% — tese da IA confirmada em balanço; eleva de 8% para 11%"
     },
     {
@@ -525,7 +532,7 @@
       "acao": "comprar",
       "ativo": "ITUB4",
       "percentual_carteira": 3.0,
-      "preco_referencia": 42.90,
+      "preco_referencia": 42.9,
       "justificativa": "Petróleo em US$95 mantém Selic elevada e spreads bancários fortes; dólar a R$5,09 abre espaço para cortes futuros que beneficiam crédito — ambos os cenários favorecem bancos; eleva de 15% para 18%"
     },
     {
@@ -546,10 +553,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": 10.05,
-    "vs_cdi_pct": 6.24,
-    "vs_ibov_pct": -7.45,
-    "vs_sp500_pct": 5.31,
+    "retorno_total_pct": 9.94,
+    "vs_cdi_pct": 6.08,
+    "vs_ibov_pct": -6.34,
+    "vs_sp500_pct": 5.2,
     "acertos": 0,
     "erros": 0
   }
