@@ -1,12 +1,12 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 43048.0,
+  "caixa": 45967.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
-      "percentual_carteira": 18.0,
-      "preco_referencia": 43.50,
+      "percentual_carteira": 15.0,
+      "preco_referencia": 41.41,
       "data_entrada": "2026-07-19"
     },
     {
@@ -567,6 +567,13 @@
       "cdi_acum": 4.28,
       "ibov_acum": 3.2,
       "sp500_acum": 2.94
+    },
+    {
+      "data": "2026-10-28",
+      "patrimonio": 97400.0,
+      "cdi_acum": 4.33,
+      "ibov_acum": 3.3,
+      "sp500_acum": 3.55
     }
   ],
   "decisoes": [
@@ -641,13 +648,21 @@
       "percentual_carteira": 4.0,
       "preco_referencia": 53.87,
       "justificativa": "Descoberta de reservatórios na Bacia da Foz Amazônica acrescenta ao inventário de exploração; PETR4 recuou 2,7% do pico histórico sem deterioração de fundamentos; Brent acima de US$ 90 mantém tese de dividendo intacta; eleva de 12% para 16%"
+    },
+    {
+      "data": "2026-10-28",
+      "acao": "vender",
+      "ativo": "ITUB4",
+      "percentual_carteira": 3.0,
+      "preco_referencia": 41.41,
+      "justificativa": "Lula reeleito eleva risco político para bancos privados; ITUB4 abaixo do preço de entrada; Selic sem espaço para cair com câmbio a R$ 5,35 e Brent a US$ 128; CDI a 13,75% oferece retorno garantido — reduz de 18% para 15%"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": -2.70,
-    "vs_cdi_pct": -6.98,
+    "retorno_total_pct": -2.60,
+    "vs_cdi_pct": -6.93,
     "vs_ibov_pct": -5.90,
-    "vs_sp500_pct": -5.64,
+    "vs_sp500_pct": -6.15,
     "acertos": 0,
     "erros": 0
   }
