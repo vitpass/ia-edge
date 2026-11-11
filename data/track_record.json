@@ -1,17 +1,17 @@
 {
   "inicio": "2026-07-19",
   "capital_inicial": 100000.0,
-  "caixa": 45992.0,
+  "caixa": 49767.0,
   "posicoes": [
     {
       "ativo": "ITUB4",
       "percentual_carteira": 15.0,
-      "preco_referencia": 42.50,
+      "preco_referencia": 42.5,
       "data_entrada": "2026-07-19"
     },
     {
       "ativo": "PETR4",
-      "percentual_carteira": 16.0,
+      "percentual_carteira": 12.0,
       "preco_referencia": 47.12,
       "data_entrada": "2026-07-19"
     },
@@ -24,7 +24,7 @@
     {
       "ativo": "TSMC34",
       "percentual_carteira": 11.0,
-      "preco_referencia": 241.00,
+      "preco_referencia": 241.0,
       "data_entrada": "2026-07-19"
     }
   ],
@@ -613,58 +613,65 @@
     {
       "data": "2026-11-03",
       "patrimonio": 95550.0,
-      "cdi_acum": 4.60,
-      "ibov_acum": -1.80,
-      "sp500_acum": 2.10
+      "cdi_acum": 4.6,
+      "ibov_acum": -1.8,
+      "sp500_acum": 2.1
     },
     {
       "data": "2026-11-04",
       "patrimonio": 95500.0,
       "cdi_acum": 4.66,
-      "ibov_acum": -2.30,
-      "sp500_acum": 2.30
+      "ibov_acum": -2.3,
+      "sp500_acum": 2.3
     },
     {
       "data": "2026-11-05",
       "patrimonio": 95700.0,
       "cdi_acum": 4.72,
-      "ibov_acum": -1.10,
-      "sp500_acum": 3.90
+      "ibov_acum": -1.1,
+      "sp500_acum": 3.9
     },
     {
       "data": "2026-11-06",
       "patrimonio": 94100.0,
       "cdi_acum": 4.77,
-      "ibov_acum": -1.10,
+      "ibov_acum": -1.1,
       "sp500_acum": -1.39
     },
     {
       "data": "2026-11-07",
       "patrimonio": 94125.0,
       "cdi_acum": 4.82,
-      "ibov_acum": -1.10,
+      "ibov_acum": -1.1,
       "sp500_acum": -1.39
     },
     {
       "data": "2026-11-08",
       "patrimonio": 94125.0,
       "cdi_acum": 4.82,
-      "ibov_acum": -1.10,
+      "ibov_acum": -1.1,
       "sp500_acum": -1.39
     },
     {
       "data": "2026-11-09",
       "patrimonio": 94200.0,
       "cdi_acum": 4.87,
-      "ibov_acum": -1.10,
+      "ibov_acum": -1.1,
       "sp500_acum": -1.39
     },
     {
       "data": "2026-11-10",
       "patrimonio": 94250.0,
       "cdi_acum": 4.93,
-      "ibov_acum": -0.80,
+      "ibov_acum": -0.8,
       "sp500_acum": 1.24
+    },
+    {
+      "data": "2026-11-11",
+      "patrimonio": 93800.0,
+      "cdi_acum": 4.98,
+      "ibov_acum": -1.32,
+      "sp500_acum": 0.85
     }
   ],
   "decisoes": [
@@ -747,13 +754,21 @@
       "percentual_carteira": 3.0,
       "preco_referencia": 41.41,
       "justificativa": "Lula reeleito eleva risco político para bancos privados; ITUB4 abaixo do preço de entrada; Selic sem espaço para cair com câmbio a R$ 5,35 e Brent a US$ 128; CDI a 13,75% oferece retorno garantido — reduz de 18% para 15%"
+    },
+    {
+      "data": "2026-11-11",
+      "acao": "vender",
+      "ativo": "PETR4",
+      "percentual_carteira": 4.0,
+      "preco_referencia": 44.11,
+      "justificativa": "3T26 com dividendo de R$ 1,19/ação abaixo do consenso e capex 2026 elevado para US$ 24-25,5 bi; Brent perdeu prêmio de guerra; desfaz o reforço de 07/10 — reduz de 16% para 12%"
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": -5.75,
-    "vs_cdi_pct": -10.68,
-    "vs_ibov_pct": -4.95,
-    "vs_sp500_pct": -6.99,
+    "retorno_total_pct": -6.2,
+    "vs_cdi_pct": -11.18,
+    "vs_ibov_pct": -4.88,
+    "vs_sp500_pct": -7.05,
     "acertos": 0,
     "erros": 0
   }
