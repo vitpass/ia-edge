@@ -679,6 +679,13 @@
       "cdi_acum": 5.03,
       "ibov_acum": -0.38,
       "sp500_acum": 2.17
+    },
+    {
+      "data": "2026-11-13",
+      "patrimonio": 94450.0,
+      "cdi_acum": 5.14,
+      "ibov_acum": -1.38,
+      "sp500_acum": 1.81
     }
   ],
   "decisoes": [
@@ -772,10 +779,10 @@
     }
   ],
   "estatisticas": {
-    "retorno_total_pct": -5.8,
-    "vs_cdi_pct": -10.83,
-    "vs_ibov_pct": -5.42,
-    "vs_sp500_pct": -7.97,
+    "retorno_total_pct": -5.55,
+    "vs_cdi_pct": -10.69,
+    "vs_ibov_pct": -4.17,
+    "vs_sp500_pct": -7.36,
     "acertos": 0,
     "erros": 0
   }
